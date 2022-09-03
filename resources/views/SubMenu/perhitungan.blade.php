@@ -124,8 +124,8 @@
                                         </tr>
                                         <tr>
                                             <td>bobot kepentingan</td>
-                                            @foreach ($patokanBobotSaintekTi as $item)
-                                                <td>{{ $item->ti }}</td>
+                                            @foreach ($arrayPatokanBobotSaintekTi as $item)
+                                                <td>{{ $item }}</td>
                                             @endforeach
                                         </tr>
                                     </tbody>
@@ -139,7 +139,7 @@
         </section>
         <section class="section">
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-11">
                     <!-- Recent Sales -->
                     <div class="col-12">
                         <div class="card recent-sales overflow-auto">
@@ -155,25 +155,42 @@
                                 <table class="table table-striped datatable">
                                     <thead>
                                         <tr>
-                                            <th scope="col">No</th>
-                                            <th scope="col">Kriteria</th>
-                                            <th scope="col">Bobot</th>
+                                            <th scope="col"></th>
+                                            <th scope="col">c1</th>
+                                            <th scope="col">c2</th>
+                                            <th scope="col">c3</th>
+                                            <th scope="col">c4</th>
+                                            <th scope="col">c5</th>
+                                            <th scope="col">c6</th>
+                                            <th scope="col">c7</th>
+                                            <th scope="col">c8</th>
+                                            <th scope="col">c9</th>
+                                            <th scope="col">c10</th>
+                                            <th scope="col">c11</th>
+                                            <th scope="col">c12</th>
+                                            <th scope="col">c13</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @php
-                                            $i = 0;
-                                        @endphp
-                                        {{-- @foreach ($ti as $aiti) --}}
-                                        @php
-                                            $i++;
-                                        @endphp
                                         <tr>
-                                            {{-- <td>{{ $i }}</td>
-                                                <td>{{ $aiti->kriteria }}</td>
-                                                <td>{{ $aiti->ti }}</td> --}}
+                                            <td>cost / benefit</td>
+                                            @foreach ($arrVector as $item)
+                                                <td>{{ $item['costBenefit'] }}</td>
+                                            @endforeach
                                         </tr>
-                                        {{-- @endforeach --}}
+                                        <tr>
+                                            <td>bobot kepentingan</td>
+                                            @foreach ($arrVector as $item)
+                                                <td>
+                                                    @if ($item['costBenefit'] == 'cost')
+                                                        -{{ $item['nilai'] }}
+                                                    @else
+                                                        {{ $item['nilai'] }}
+                                                    @endif
+
+                                                </td>
+                                            @endforeach
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -185,7 +202,7 @@
         </section>
         <section class="section">
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-11">
                     <!-- Recent Sales -->
                     <div class="col-12">
                         <div class="card recent-sales overflow-auto">
@@ -201,25 +218,15 @@
                                 <table class="table table-striped datatable">
                                     <thead>
                                         <tr>
-                                            <th scope="col">No</th>
-                                            <th scope="col">Kriteria</th>
-                                            <th scope="col">Bobot</th>
+                                            <th scope="col">alternatif</th>
+                                            <th scope="col">nilai vektor s</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @php
-                                            $i = 0;
-                                        @endphp
-                                        {{-- @foreach ($ti as $aiti) --}}
-                                        @php
-                                            $i++;
-                                        @endphp
                                         <tr>
-                                            {{-- <td>{{ $i }}</td>
-                                                <td>{{ $aiti->kriteria }}</td>
-                                                <td>{{ $aiti->ti }}</td> --}}
+                                            <td>$item->ti</td>
+                                            <td>$item->ti</td>
                                         </tr>
-                                        {{-- @endforeach --}}
                                     </tbody>
                                 </table>
                             </div>
