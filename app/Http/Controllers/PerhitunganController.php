@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\patokanBobotSaintek;
 use App\Models\perhitungan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PerhitunganController extends Controller
 {
@@ -33,11 +34,20 @@ class PerhitunganController extends Controller
         } elseif ($prodi == 'ilkom') {
             $title = 'Ilmu Komunikasi';
         }
-        $ti = patokanBobotSaintek::all();
+        $patokanBobotSaintekTi = patokanBobotSaintek::all();
+        $dataMahasiswaTi =  DB::table('camabas')
+            ->join('sainteks', 'sainteks.camaba_id', '=', 'camabas.id')
+            ->where('camabas.prodi1', 'Teknik Informatika')
+            ->orWhere('camabas.prodi2', 'Teknik Informatika')
+            ->orWhere('camabas.prodi3', 'Teknik Informatika')
+            ->get();
+
+
 
         return view('SubMenu.perhitungan', [
             'title' => $title,
-            'ti' => $ti
+            'dataMahasiswaTi' => $dataMahasiswaTi,
+            'patokanBobotSaintekTi' => $patokanBobotSaintekTi,
         ]);
     }
 
