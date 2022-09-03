@@ -21,6 +21,7 @@ class PatokanBobotSaintekFactory extends Factory
             'ti' => $this->faker->numberBetween(1, 5),
             'tip' => $this->faker->numberBetween(1, 5),
             'agro' => $this->faker->numberBetween(1, 5),
+            'status' => $this->faker->randomElement(['cost', 'benefit']),
         ];
     }
 }

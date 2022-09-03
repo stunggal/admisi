@@ -42,12 +42,37 @@ class PerhitunganController extends Controller
             ->orWhere('camabas.prodi3', 'Teknik Informatika')
             ->get();
 
+        $jumlahPatokanBobotSaintekTi = 0;
+        $arrayPatokanBobotSaintekTi = [];
+
+        foreach ($patokanBobotSaintekTi as $key) {
+            $jumlahPatokanBobotSaintekTi += $key['ti'];
+        }
+
+        foreach ($patokanBobotSaintekTi as $key) {
+            array_push($arrayPatokanBobotSaintekTi, $key["ti"] / $jumlahPatokanBobotSaintekTi);
+        }
+
+        $arrayStatus = [];
+        foreach ($patokanBobotSaintekTi as $key) {
+            array_push($arrayStatus, $key->status);
+        }
+
+        $a1 = $arrayStatus;
+        $a2 = $arrayPatokanBobotSaintekTi;
+        $arrVector = [];
+        for ($i = 0; $i < count($a1); $i++) {
+            $arrVector[$i]['costBenefit'] = $a1[$i];
+            $arrVector[$i]['nilai'] = $a2[$i];
+        }
 
 
         return view('SubMenu.perhitungan', [
             'title' => $title,
             'dataMahasiswaTi' => $dataMahasiswaTi,
             'patokanBobotSaintekTi' => $patokanBobotSaintekTi,
+            'arrayPatokanBobotSaintekTi' => $arrayPatokanBobotSaintekTi,
+            'arrVector' => $arrVector
         ]);
     }
 

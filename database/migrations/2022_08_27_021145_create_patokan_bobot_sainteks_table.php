@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('ti');
             $table->string('tip');
             $table->string('agro');
+            $table->string('status');
             $table->timestamps();
         });
     }
