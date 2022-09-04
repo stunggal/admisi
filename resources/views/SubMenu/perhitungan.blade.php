@@ -202,7 +202,7 @@
         </section>
         <section class="section">
             <div class="row">
-                <div class="col-lg-11">
+                <div class="col-lg-8">
                     <!-- Recent Sales -->
                     <div class="col-12">
                         <div class="card recent-sales overflow-auto">
@@ -223,10 +223,18 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>$item->ti</td>
-                                            <td>$item->ti</td>
-                                        </tr>
+                                        @php
+                                            $i = 0;
+                                        @endphp
+                                        @foreach ($vectorS as $item)
+                                            <tr>
+                                                @php
+                                                    $i++;
+                                                @endphp
+                                                <td>A{{ $i }}</td>
+                                                <td>{{ $item }}</td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -254,7 +262,6 @@
                                 <table class="table table-striped datatable">
                                     <thead>
                                         <tr>
-                                            <th scope="col">No</th>
                                             <th scope="col">Kriteria</th>
                                             <th scope="col">Bobot</th>
                                         </tr>
@@ -263,16 +270,15 @@
                                         @php
                                             $i = 0;
                                         @endphp
-                                        {{-- @foreach ($ti as $aiti) --}}
-                                        @php
-                                            $i++;
-                                        @endphp
-                                        <tr>
-                                            {{-- <td>{{ $i }}</td>
-                                                <td>{{ $aiti->kriteria }}</td>
-                                                <td>{{ $aiti->ti }}</td> --}}
-                                        </tr>
-                                        {{-- @endforeach --}}
+                                        @foreach ($arrRank as $item)
+                                            <tr>
+                                                @php
+                                                    $i++;
+                                                @endphp
+                                                <td>A{{ $i }}</td>
+                                                <td>{{ $item }}</td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
