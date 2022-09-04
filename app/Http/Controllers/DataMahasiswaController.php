@@ -198,7 +198,6 @@ class DataMahasiswaController extends Controller
         $normslisasiPendidikan_terakhir = $nilaipendidikan_terakhir / $total;
         $normslisasiKesanggupan = $nilaikesanggupan / $total;
 
-        $jumlah = $normslisasiPemikiran + $normslisasiArab + $normslisasiPendanaan + $normslisasiFisika + $normslisasiBiologi + $normslisasiIggris + $normslisasiIu_lisan + $normslisasiPenghasilan + $normslisasiPilihan + $normslisasiMatematika + $normslisasiPendidikan_terakhir + $normslisasiKesanggupan + $normslisasiKimia;
 
         $penilaian = ($request['matematika'] ** $normslisasiMatematika) * ($request['fisika'] ** $normslisasiFisika) * ($request['kimia'] ** $normslisasiKimia) * ($request['biologi'] ** $normslisasiBiologi) * ($request['arab'] ** $normslisasiArab) * ($request['inggris'] ** $normslisasiIggris) * ($request['ujian_lisan'] ** $normslisasiIu_lisan) * ($request['pilihan'] ** $normslisasiPilihan) * ($request['pendanaan'] ** $normslisasiPendanaan) * ($request['penghasilan'] ** $normslisasiPenghasilan) * ($request['kesanggupan'] ** $normslisasiKesanggupan) * ($request['pendidikan_terakhir'] ** $normslisasiPendidikan_terakhir) * ($request['pemikiran'] ** $normslisasiPemikiran);
 

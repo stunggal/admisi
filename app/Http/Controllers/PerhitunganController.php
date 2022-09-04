@@ -66,13 +66,55 @@ class PerhitunganController extends Controller
             $arrVector[$i]['nilai'] = $a2[$i];
         }
 
+        $vectorS = [];
+        $i = -1;
+        foreach ($dataMahasiswaTi as $item) {
+            $i++;
+            $mtk = $item->matematika ** $arrVector['0']['nilai'];
+            $fsk = $item->fisika ** $arrVector['1']['nilai'];
+            $kma = $item->kimia ** $arrVector['2']['nilai'];
+            $bio = $item->biologi ** $arrVector['3']['nilai'];
+            $sanggup = $item->kesanggupan ** $arrVector['4']['nilai'];
+            $pil = $item->pilihan ** $arrVector['5']['nilai'];
+            $ing = $item->inggris ** $arrVector['6']['nilai'];
+            $lisan = $item->ujian_lisan ** $arrVector['7']['nilai'];
+            $arab = $item->arab ** $arrVector['8']['nilai'];
+            $mikir = $item->pemikiran ** $arrVector['9']['nilai'];
+            $dana = $item->pendanaan ** $arrVector['10']['nilai'];
+            $didik = $item->pendidikan_terakhir ** $arrVector['11']['nilai'];
+            $hasil = $item->penghasilan ** $arrVector['12']['nilai'];
+
+            $vectorS[$i] = $mtk * $fsk * $kma * $bio * $sanggup * $pil * $ing * $lisan * $arab * $mikir * $dana * $didik * $hasil;
+        }
+
+        $ranking = 0;
+        foreach ($vectorS as $key) {
+            $ranking += $key;
+        }
+
+        $arrRank = [];
+        foreach ($vectorS as $key) {
+            array_push($arrRank, $key / $ranking);
+        }
+
+        // echo '<pre>';
+        // print_r($arrRank);
+        // die;
+
+
+        // echo '<pre>';
+        // print_r($arrVector[1]['nilai']);
+        // die;
+
 
         return view('SubMenu.perhitungan', [
             'title' => $title,
             'dataMahasiswaTi' => $dataMahasiswaTi,
             'patokanBobotSaintekTi' => $patokanBobotSaintekTi,
             'arrayPatokanBobotSaintekTi' => $arrayPatokanBobotSaintekTi,
-            'arrVector' => $arrVector
+            'arrVector' => $arrVector,
+            'vectorS' => $vectorS,
+            'arrRank' => $arrRank
         ]);
     }
 
