@@ -36,12 +36,14 @@ class DataKriteriaController extends Controller
         } elseif ($prodi == 'ilkom') {
             $title = 'Ilmu Komunikasi';
         }
-        $ti = patokanBobotSaintek::all();
-        $ti2 = saintek::all();
+
+        $dataProdi = patokanBobotSaintek::all();
 
         return view('SubMenu.data_kriteria', [
             'title' => $title,
-            'ti' => $ti,
+            'dataProdi' => $dataProdi,
+            'prodi' => $prodi,
+
         ]);
     }
 

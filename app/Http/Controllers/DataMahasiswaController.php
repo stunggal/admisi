@@ -45,27 +45,36 @@ class DataMahasiswaController extends Controller
     {
         if ($prodi == 'ti') {
             $title = 'Teknik Informatika';
+            $data = camaba::where('prodi1', '=', 'Teknik Informatika')
+                ->orWhere('prodi2', '=', 'Teknik Informatika')
+                ->orWhere('prodi3', '=', 'Teknik Informatika')
+                ->get();
         } elseif ($prodi == 'tip') {
             $title = 'Teknik Industri Pertanian';
+            $data = camaba::where('prodi1', '=', 'Teknik Industri Pertanian')
+                ->orWhere('prodi2', '=', 'Teknik Industri Pertanian')
+                ->orWhere('prodi3', '=', 'Teknik Industri Pertanian')
+                ->get();
         } elseif ($prodi == 'agro') {
             $title = 'Agroteknologi';
+            $data = camaba::where('prodi1', '=', 'Agroteknologi')
+                ->orWhere('prodi2', '=', 'Agroteknologi')
+                ->orWhere('prodi3', '=', 'Agroteknologi')
+                ->get();
         } elseif ($prodi == 'hi') {
             $title = 'Hubungan Internasional';
         } elseif ($prodi == 'ilkom') {
             $title = 'Ilmu Komunikasi';
         }
 
-        $ti = camaba::where('prodi1', '=', 'Teknik Informatika')
-            ->orWhere('prodi2', '=', 'Teknik Informatika')
-            ->orWhere('prodi3', '=', 'Teknik Informatika')
-            ->get();
+
 
 
         // $ti = camaba::all();
 
         return view('SubMenu.data_mahasiswa', [
             'title' => $title,
-            'ti' => $ti
+            'data' => $data,
         ]);
     }
 
@@ -114,98 +123,18 @@ class DataMahasiswaController extends Controller
             'penghasilan' => 'required',
         ]);
 
-        $pemikiran = patokanBobotSaintek::where('kriteria', 'Pemikiran')->get();
-        $arab = patokanBobotSaintek::where('kriteria', 'Bahasa Arab')->get();
-        $pendanaan = patokanBobotSaintek::where('kriteria', 'Pendanaan')->get();
-        $fisika = patokanBobotSaintek::where('kriteria', 'Fisika')->get();
-        $kimia = patokanBobotSaintek::where('kriteria', 'Kimia')->get();
-        $biologi = patokanBobotSaintek::where('kriteria', 'Biologi')->get();
-        $inggris = patokanBobotSaintek::where('kriteria', 'Bahasa Inggris')->get();
-        $u_lisan = patokanBobotSaintek::where('kriteria', 'Ujian Lisan')->get();
-        $penghasilan = patokanBobotSaintek::where('kriteria', 'Penghasilan Perbulan')->get();
-        $pilihan = patokanBobotSaintek::where('kriteria', 'Pilihan Prodi')->get();
-        $matematika = patokanBobotSaintek::where('kriteria', 'Matematika')->get();
-        $pendidikan_terakhir = patokanBobotSaintek::where('kriteria', 'Pendidikan Terakhir')->get();
-        $kesanggupan = patokanBobotSaintek::where('kriteria', 'Kesanggupan Studi')->get();
+        // $pemikiran = patokanBobotSaintek::where('kriteria', 'Pemikiran')->get();
+        // $total = 0;
 
-        $total = 0;
-
-        # Teknik Informatika    
-        foreach ($pemikiran as $value) {
-            $total += $value->ti;
-            $nilaiPemikiran = $value->ti;
-        }
-        foreach ($arab as $value) {
-            $total += $value->ti;
-            $nilaiarab = $value->ti;
-        }
-        foreach ($pendanaan as $value) {
-            $total += $value->ti;
-            $nilaipendanaan = $value->ti;
-        }
-        foreach ($fisika as $value) {
-            $total += $value->ti;
-            $nilaifisika = $value->ti;
-        }
-        foreach ($kimia as $value) {
-            $total += $value->ti;
-            $nilaikimia = $value->ti;
-        }
-        foreach ($biologi as $value) {
-            $total += $value->ti;
-            $nilaibiologi = $value->ti;
-        }
-        foreach ($inggris as $value) {
-            $total += $value->ti;
-            $nilaiinggris = $value->ti;
-        }
-        foreach ($u_lisan as $value) {
-            $total += $value->ti;
-            $nilaiu_lisan = $value->ti;
-        }
-        foreach ($penghasilan as $value) {
-            $total += $value->ti;
-            $nilaipenghasilan = $value->ti;
-        }
-        foreach ($pilihan as $value) {
-            $total += $value->ti;
-            $nilaipilihan = $value->ti;
-        }
-        foreach ($matematika as $value) {
-            $total += $value->ti;
-            $nilaimatematika = $value->ti;
-        }
-        foreach ($pendidikan_terakhir as $value) {
-            $total += $value->ti;
-            $nilaipendidikan_terakhir = $value->ti;
-        }
-        foreach ($kesanggupan as $value) {
-            $total += $value->ti;
-            $nilaikesanggupan = $value->ti;
-        }
-
-        $normslisasiPemikiran = $nilaiPemikiran / $total;
-        $normslisasiArab = $nilaiarab / $total;
-        $normslisasiPendanaan = $nilaipendanaan / $total;
-        $normslisasiFisika = $nilaifisika / $total;
-        $normslisasiKimia = $nilaikimia / $total;
-        $normslisasiBiologi = $nilaibiologi / $total;
-        $normslisasiIggris = $nilaiinggris / $total;
-        $normslisasiIu_lisan = $nilaiu_lisan / $total;
-        $normslisasiPenghasilan = $nilaipenghasilan / $total;
-        $normslisasiPilihan = $nilaipilihan / $total;
-        $normslisasiMatematika = $nilaimatematika / $total;
-        $normslisasiPendidikan_terakhir = $nilaipendidikan_terakhir / $total;
-        $normslisasiKesanggupan = $nilaikesanggupan / $total;
-
-
-        $penilaian = ($request['matematika'] ** $normslisasiMatematika) * ($request['fisika'] ** $normslisasiFisika) * ($request['kimia'] ** $normslisasiKimia) * ($request['biologi'] ** $normslisasiBiologi) * ($request['arab'] ** $normslisasiArab) * ($request['inggris'] ** $normslisasiIggris) * ($request['ujian_lisan'] ** $normslisasiIu_lisan) * ($request['pilihan'] ** $normslisasiPilihan) * ($request['pendanaan'] ** $normslisasiPendanaan) * ($request['penghasilan'] ** $normslisasiPenghasilan) * ($request['kesanggupan'] ** $normslisasiKesanggupan) * ($request['pendidikan_terakhir'] ** $normslisasiPendidikan_terakhir) * ($request['pemikiran'] ** $normslisasiPemikiran);
-
-
-        return $penilaian;
+        // # Teknik Informatika    
+        // foreach ($pemikiran as $value) {
+        //     $total += $value->ti;
+        //     $nilaiPemikiran = $value->ti;
+        // }
 
         $isaintek['camaba_id'] = $camaba_id;
-        camaba::create($icamaba);
+        $isaintek['periode'] =
+            camaba::create($icamaba);
         saintek::create($isaintek);
 
         return redirect('/data-mahasiswa')->with('success', 'Data Berhasil tersimpan');

@@ -34,6 +34,7 @@
                                         <tr>
                                             <th scope="col">No</th>
                                             <th scope="col">Kriteria</th>
+                                            <th scope="col">Cost / Benefit</th>
                                             <th scope="col">Bobot</th>
                                         </tr>
                                     </thead>
@@ -41,14 +42,25 @@
                                         @php
                                             $i = 0;
                                         @endphp
-                                        @foreach ($ti as $aiti)
+                                        @foreach ($dataProdi as $saintek)
                                             @php
                                                 $i++;
                                             @endphp
                                             <tr>
                                                 <td>{{ $i }}</td>
-                                                <td>{{ $aiti->kriteria }}</td>
-                                                <td>{{ $aiti->ti }}</td>
+                                                <td>{{ $saintek->kriteria }}</td>
+                                                <td>{{ $saintek->status }}</td>
+
+                                                @if ($prodi == 'ti')
+                                                    <td>{{ $saintek->ti }}</td>
+                                                @endif
+                                                @if ($prodi == 'tip')
+                                                    <td>{{ $saintek->tip }}</td>
+                                                @endif
+                                                @if ($prodi == 'agro')
+                                                    <td>{{ $saintek->agro }}</td>
+                                                @endif
+
                                             </tr>
                                         @endforeach
                                     </tbody>

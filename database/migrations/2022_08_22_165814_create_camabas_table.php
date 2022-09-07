@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('camabas', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
+            $table->string('periode');
             $table->string('prodi1');
             $table->string('prodi2');
             $table->string('prodi3');

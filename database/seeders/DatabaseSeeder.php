@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
         saintek::factory()->times(100)->create();
         humaniora::factory()->times(90)->create();
         camaba::factory(100)->create();
-        periode::factory()->times(100)->create();
+        periode::factory()->times(5)->create();
         patokanBobotSaintek::factory()->times(13)->create();
     }
 }

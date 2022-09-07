@@ -30,6 +30,38 @@
                                 </div>
                             </div>
 
+                            <div class="card info-card customers-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Tenik Industri Pertanian</h5>
+                                    <a href="/data-kriteria/tip" class="btn btn-success"><i class="bi bi-eye"></i></a>
+                                    <a href="" class="btn btn-danger "><i class="bi bi-trash"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="card info-card customers-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Agroteknologi</h5>
+                                    <a href="/data-kriteria/agro" class="btn btn-success"><i class="bi bi-eye"></i></a>
+                                    <a href="" class="btn btn-danger "><i class="bi bi-trash"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="card info-card customers-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Hubungan Internasional</h5>
+                                    <a href="/data-kriteria/agro" class="btn btn-success"><i class="bi bi-eye"></i></a>
+                                    <a href="" class="btn btn-danger "><i class="bi bi-trash"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="card info-card customers-card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Ilmu Komunikasi</h5>
+                                    <a href="/data-kriteria/ilkom" class="btn btn-success"><i class="bi bi-eye"></i></a>
+                                    <a href="" class="btn btn-danger "><i class="bi bi-trash"></i></a>
+                                </div>
+                            </div>
+
                         </div><!-- End Customers Card -->
 
                     </div>

@@ -42,9 +42,9 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                    <button type="reset" class="btn btn-secondary">
+                                <div class="mt-4 text-center">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                    <button type="reset" class="btn btn-light">
                                         Reset
                                     </button>
                                 </div>
@@ -87,7 +87,7 @@
                                                     <form action="periode/destroy/{{ $p->id }}" method="POST">
                                                         <a href="periode/edit/ {{ $p->id }}"
                                                             class="btn
-                                                            btn-primary bi bi-pencil"></a>
+                                                            btn-success bi bi-pencil"></a>
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger bi bi-trash"></button>

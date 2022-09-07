@@ -42,15 +42,15 @@
                                         @php
                                             $i = 0;
                                         @endphp
-                                        @foreach ($ti as $aiti)
+                                        @foreach ($data as $a)
                                             @php
                                                 $i++;
                                             @endphp
                                             <tr>
                                                 <td>{{ $i }}</td>
-                                                <td>{{ $aiti->nama }}</td>
+                                                <td>{{ $a->nama }}</td>
                                                 <td>
-                                                    <a href="/data-mahasiswa/datapribadi/{{ $aiti->id }}"
+                                                    <a href="/data-mahasiswa/datapribadi/{{ $a->id }}"
                                                         class="btn btn-success">
                                                         <i class="bi bi-pencil"></i>
                                                     </a>
