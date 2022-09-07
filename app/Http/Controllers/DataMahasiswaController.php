@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\camaba;
 use App\Models\dataMahasiswa;
 use App\Models\patokanBobotSaintek;
+use App\Models\periode;
 use App\Models\saintek;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
@@ -133,8 +134,12 @@ class DataMahasiswaController extends Controller
         // }
 
         $isaintek['camaba_id'] = $camaba_id;
-        $isaintek['periode'] =
-            camaba::create($icamaba);
+        $icamaba['periode'] = 0;
+        $c = periode::where('status', 'aktif')->get();
+        foreach ($c as $key) {
+            $icamaba['periode'] = $key['periode'];
+        }
+        camaba::create($icamaba);
         saintek::create($isaintek);
 
         return redirect('/data-mahasiswa')->with('success', 'Data Berhasil tersimpan');

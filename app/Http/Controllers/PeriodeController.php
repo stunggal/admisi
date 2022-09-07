@@ -40,7 +40,13 @@ class PeriodeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'periode' => 'required|max:5|min:5'
+        ]);
+        $validatedData['status'] = 'nonaktif';
+        // return $validatedData;
+        periode::create($validatedData);
+        return redirect('/periode')->with('success', 'Data Berhasil tersimpan');
     }
 
     /**

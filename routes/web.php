@@ -34,6 +34,7 @@ Route::get('/data-mahasiswa/datapribadi/{id}', [DataMahasiswaController::class, 
 Route::get('/data-mahasiswa/{prodi}', [DataMahasiswaController::class, 'prodi']);
 
 Route::get('/periode', [PeriodeController::class, 'index']);
+Route::post('/periode', [PeriodeController::class, 'store']);
 Route::post('/periode/destroy/{periode}', [PeriodeController::class, 'destroy']);
 Route::get('/periode/edit/{periode}', [PeriodeController::class, 'edit']);
 

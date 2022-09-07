@@ -27,17 +27,17 @@
                             @endif
 
                             <!-- Horizontal Form -->
-                            <form method="post" action="/period">
+                            <form method="post" action="/periode">
                                 @csrf
                                 <div class="row mb-3">
-                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Period</label>
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Periode</label>
                                     <div class="col-sm-10">
                                         <input type="number"
-                                            class="form-control @if ($errors->has('period')) is-invalid @endif"
-                                            name="period" value="{{ old('period') }}" placeholder="Period">
-                                        @if ($errors->has('period'))
+                                            class="form-control @if ($errors->has('periode')) is-invalid @endif"
+                                            name="periode" value="{{ old('periode') }}" placeholder="Periode">
+                                        @if ($errors->has('periode'))
                                             <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('period') }}</strong>
+                                                <strong>{{ $errors->first('periode') }}</strong>
                                             </span>
                                         @endif
                                     </div>
@@ -78,8 +78,8 @@
                                         @foreach ($periode as $p)
                                             <tr>
                                                 <td>{{ $p->periode }}</td>
-                                                @if ($p->is_active == 1)
-                                                    <td><span class="badge bg-primary">Periode aktif</span></td>
+                                                @if ($p->status == 'aktif')
+                                                    <td><span class="badge bg-success">Periode aktif</span></td>
                                                 @else
                                                     <td><span class="badge bg-danger">Periode nonaktif</span></td>
                                                 @endif

@@ -12,6 +12,7 @@ class camaba extends Model
         'nama',
         'prodi1',
         'prodi2',
-        'prodi3'
+        'prodi3',
+        'periode'
     ];
 }
