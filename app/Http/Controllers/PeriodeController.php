@@ -68,11 +68,13 @@ class PeriodeController extends Controller
      */
     public function edit($id)
     {
-        $periode = periode::all();
+        // $periode = periode::where('status', 'aktif')->first();
+        $periode = periode::where('id', $id)->get();
+
         return view(
             'SubMenu.periode',
             [
-                'periode' => periode::find($id),
+                'periode' => $periode,
                 'title' => 'Edit',
                 'periode' => $periode->where('id', $id)
             ]
@@ -86,19 +88,14 @@ class PeriodeController extends Controller
      * @param  \App\Models\periode  $periode
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $periode)
     {
         $validatedData = $request->validate([
-            // period must be 5 digits long
-            'periode' => 'required|digits:4|integer|unique:periode,periode,' . $id,
-            'status' => 'required|boolean',
+            'periode' => 'required|max:5|min:5',
         ]);
-        // $participants = Participants::findOrFail($id);
-        $periode = periode::findOrFail($id);
-        echo '<pre>';
-        print_r($periode);
-        die;
-        $periode->update($validatedData);
+        $validatedData['status'] = $request['status'];
+        $Updateperiode = periode::findOrFail($periode);
+        $Updateperiode->update($validatedData);
         return redirect('/periode')->with('success', 'Period has been updated');
     }
 
@@ -108,9 +105,14 @@ class PeriodeController extends Controller
      * @param  \App\Models\periode  $periode
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($periode)
     {
-        periode::destroy($id);
+        // 
+    }
+
+    public function destroyed($periode)
+    {
+        periode::destroy('id', $periode);
         return redirect('/periode')->with('delete', 'Period has been delete');
     }
 }

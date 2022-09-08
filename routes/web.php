@@ -37,8 +37,9 @@ Route::get('/periode', [PeriodeController::class, 'index']);
 Route::post('/periode', [PeriodeController::class, 'store']);
 Route::get('/periode/edit', [PeriodeController::class, 'edit']);
 Route::get('/periode/edit/{periode}', [PeriodeController::class, 'edit']);
+Route::post('/periode/edit/{periode}', [PeriodeController::class, 'update']);
 Route::get('/periode/update', [PeriodeController::class, 'edit']);
-Route::post('/periode/destroy/{periode}', [PeriodeController::class, 'destroy']);
+Route::post('/periode/destroyed/{periode}', [PeriodeController::class, 'destroyed']);
 
 Route::get('/perhitungan', [PerhitunganController::class, 'index']);
 Route::get('/perhitungan/{prodi}', [PerhitunganController::class, 'prodi']);

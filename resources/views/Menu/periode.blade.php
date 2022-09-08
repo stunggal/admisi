@@ -83,12 +83,11 @@
                                                     <td><span class="badge bg-danger">Periode nonaktif</span></td>
                                                 @endif
                                                 <td>
-                                                    <form action="periode/destroy/{{ $p->id }}" method="POST">
-                                                        <a href="periode/edit/ {{ $p->id }}"
+                                                    <form action="periode/destroyed/{{ $p->id }}" method="post">
+                                                        <a href="periode/edit/{{ $p->id }}"
                                                             class="btn
                                                             btn-success bi bi-pencil"></a>
                                                         @csrf
-                                                        @method('DELETE')
                                                         <button type="submit" class="btn btn-danger bi bi-trash"></button>
                                                     </form>
                                                 </td>
