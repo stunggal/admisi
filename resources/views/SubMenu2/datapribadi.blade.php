@@ -26,7 +26,7 @@
                             <div class="card-body">
                                 <div class="mb-4 mt-4">
                                     <button type="submit" class="btn btn-success">Ubah Data</button>
-                                    <button type="reset" class="btn btn-secondary">Kembali</button>
+                                    <a href="" type="reset" class="btn btn-secondary">Kembali</a>
                                 </div>
 
                                 <!-- Multi Columns Form -->

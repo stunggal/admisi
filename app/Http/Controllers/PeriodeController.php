@@ -68,10 +68,13 @@ class PeriodeController extends Controller
      */
     public function edit($id)
     {
+        $periode = periode::all();
         return view(
-            'period.edit',
+            'SubMenu.periode',
             [
-                'period' => periode::find($id),
+                'periode' => periode::find($id),
+                'title' => 'Edit',
+                'periode' => $periode->where('id', $id)
             ]
         );
     }
@@ -88,11 +91,14 @@ class PeriodeController extends Controller
         $validatedData = $request->validate([
             // period must be 5 digits long
             'periode' => 'required|digits:4|integer|unique:periode,periode,' . $id,
-            'is_active' => 'required|boolean',
+            'status' => 'required|boolean',
         ]);
         // $participants = Participants::findOrFail($id);
-        $period = periode::findOrFail($id);
-        $period->update($validatedData);
+        $periode = periode::findOrFail($id);
+        echo '<pre>';
+        print_r($periode);
+        die;
+        $periode->update($validatedData);
         return redirect('/periode')->with('success', 'Period has been updated');
     }
 

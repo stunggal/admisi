@@ -214,7 +214,7 @@
 
                                     <div class="mt-4">
                                         <button type="submit" class="btn btn-success">Simpan Data</button>
-                                        <button type="delete" class="btn btn-secondary">Kembali</button>
+                                        <a href="/data-mahasiswa" type="reset" class="btn btn-secondary">Kembali</a>
                                     </div>
                                 </form>
                             </div>
