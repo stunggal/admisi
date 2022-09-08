@@ -35,8 +35,10 @@ Route::get('/data-mahasiswa/{prodi}', [DataMahasiswaController::class, 'prodi'])
 
 Route::get('/periode', [PeriodeController::class, 'index']);
 Route::post('/periode', [PeriodeController::class, 'store']);
-Route::post('/periode/destroy/{periode}', [PeriodeController::class, 'destroy']);
+Route::get('/periode/edit', [PeriodeController::class, 'edit']);
 Route::get('/periode/edit/{periode}', [PeriodeController::class, 'edit']);
+Route::get('/periode/update', [PeriodeController::class, 'edit']);
+Route::post('/periode/destroy/{periode}', [PeriodeController::class, 'destroy']);
 
 Route::get('/perhitungan', [PerhitunganController::class, 'index']);
 Route::get('/perhitungan/{prodi}', [PerhitunganController::class, 'prodi']);

@@ -17,7 +17,6 @@
         <section class="section">
             <div class="row">
                 <div class="col-lg-8">
-                    <a href="/data-mahasiswa/create" class="btn btn-success mt-2 mb-3">Tambah Data</i></a>
                     <!-- Recent Sales -->
                     <div class="col-12">
                         <div class="card recent-sales overflow-auto">

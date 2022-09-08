@@ -13,6 +13,7 @@
             </nav>
         </div><!-- End Page Title -->
 
+        <a href="/data-mahasiswa/create" class="btn btn-success mt-2 mb-3">Tambah Data</i></a>
         <section class="section">
             <div class="row">
 

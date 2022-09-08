@@ -19,13 +19,12 @@
                 <div class="col-lg-6">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Insert Period</h5>
+                            <h5 class="card-title">Insert Periode</h5>
                             @if (session()->has('success'))
                                 <div class="alert alert-success">
                                     {{ session()->get('success') }}
                                 </div>
                             @endif
-
                             <!-- Horizontal Form -->
                             <form method="post" action="/periode">
                                 @csrf
