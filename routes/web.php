@@ -31,7 +31,9 @@ Route::get('/data-mahasiswa', [DataMahasiswaController::class, 'index']);
 Route::get('/data-mahasiswa/create', [DataMahasiswaController::class, 'create']);
 Route::post('/data-mahasiswa/create', [DataMahasiswaController::class, 'store']);
 Route::get('/data-mahasiswa/datapribadi/{id}', [DataMahasiswaController::class, 'perhitungan']);
-Route::get('/data-mahasiswa/{prodi}', [DataMahasiswaController::class, 'prodi']);
+Route::get('/data-mahasiswa/periode/{prodi}', [DataMahasiswaController::class, 'perperiode']);
+Route::get('/data-mahasiswa/{periode}/{prodi}', [DataMahasiswaController::class, 'perperiodeperprodi']);
+// Route::get('/data-mahasiswa/{prodi}', [DataMahasiswaController::class, 'prodi']);
 
 Route::get('/periode', [PeriodeController::class, 'index']);
 Route::post('/periode', [PeriodeController::class, 'store']);

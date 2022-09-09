@@ -42,41 +42,84 @@ class DataMahasiswaController extends Controller
         ]);
     }
 
-    public function prodi($prodi)
+    public function perperiode($prodi)
+    {
+        $periodes = periode::all();
+        return view('Menu.perperiode', [
+            'periodes' => $periodes,
+            'prodi' => $prodi,
+            'title' => 'perprodi'
+        ]);
+    }
+
+    public function perperiodeperprodi($periode, $prodi)
     {
         if ($prodi == 'ti') {
             $title = 'Teknik Informatika';
-            $data = camaba::where('prodi1', '=', 'Teknik Informatika')
-                ->orWhere('prodi2', '=', 'Teknik Informatika')
-                ->orWhere('prodi3', '=', 'Teknik Informatika')
+            $data = camaba::Where(function ($query) use ($periode) {
+                $query->where("periode", $periode);
+            })
+                ->Where(function ($query) {
+                    $query->where('prodi1', '=', 'Teknik Informatika')
+                        ->orWhere('prodi2', '=', 'Teknik Informatika')
+                        ->orWhere('prodi3', '=', 'Teknik Informatika');
+                })
                 ->get();
         } elseif ($prodi == 'tip') {
             $title = 'Teknik Industri Pertanian';
-            $data = camaba::where('prodi1', '=', 'Teknik Industri Pertanian')
-                ->orWhere('prodi2', '=', 'Teknik Industri Pertanian')
-                ->orWhere('prodi3', '=', 'Teknik Industri Pertanian')
+            $data = camaba::Where(function ($query) use ($periode) {
+                $query->where("periode", $periode);
+            })
+                ->Where(function ($query) {
+                    $query->where('prodi1', '=', 'Teknik Industri Pertanian')
+                        ->orWhere('prodi2', '=', 'Teknik Industri Pertanian')
+                        ->orWhere('prodi3', '=', 'Teknik Industri Pertanian');
+                })
                 ->get();
         } elseif ($prodi == 'agro') {
             $title = 'Agroteknologi';
-            $data = camaba::where('prodi1', '=', 'Agroteknologi')
-                ->orWhere('prodi2', '=', 'Agroteknologi')
-                ->orWhere('prodi3', '=', 'Agroteknologi')
+            $data = camaba::Where(function ($query) use ($periode) {
+                $query->where("periode", $periode);
+            })
+                ->Where(function ($query) {
+                    $query->where('prodi1', '=', 'Agroteknologi')
+                        ->orWhere('prodi2', '=', 'Agroteknologi')
+                        ->orWhere('prodi3', '=', 'Agroteknologi');
+                })
                 ->get();
-        } elseif ($prodi == 'hi') {
-            $title = 'Hubungan Internasional';
-        } elseif ($prodi == 'ilkom') {
-            $title = 'Ilmu Komunikasi';
         }
-
-
-
-
-        // $ti = camaba::all();
 
         return view('SubMenu.data_mahasiswa', [
             'title' => $title,
             'data' => $data,
         ]);
+    }
+
+    public function prodi($prodi)
+    {
+        // if ($prodi == 'ti') {
+        //     $title = 'Teknik Informatika';
+        //     $data = camaba::where('prodi1', '=', 'Teknik Informatika')
+        //         ->orWhere('prodi2', '=', 'Teknik Informatika')
+        //         ->orWhere('prodi3', '=', 'Teknik Informatika')
+        //         ->get();
+        // } elseif ($prodi == 'tip') {
+        //     $title = 'Teknik Industri Pertanian';
+        //     $data = camaba::where('prodi1', '=', 'Teknik Industri Pertanian')
+        //         ->orWhere('prodi2', '=', 'Teknik Industri Pertanian')
+        //         ->orWhere('prodi3', '=', 'Teknik Industri Pertanian')
+        //         ->get();
+        // }
+
+
+
+
+        // // $ti = camaba::all();
+
+        // return view('SubMenu.data_mahasiswa', [
+        //     'title' => $title,
+        //     'data' => $data,
+        // ]);
     }
 
     /**

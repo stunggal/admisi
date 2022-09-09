@@ -31,7 +31,8 @@
                             <div class="card info-card customers-card">
                                 <div class="card-body">
                                     <h5 class="card-title">Tenik informatika</h5>
-                                    <a href="/data-mahasiswa/ti" class="btn btn-success"><i class="bi bi-eye"></i></a>
+                                    <a href="/data-mahasiswa/periode/ti" class="btn btn-success"><i
+                                            class="bi bi-eye"></i></a>
                                     <a href="" class="btn btn-danger "><i class="bi bi-trash"></i></a>
                                 </div>
                             </div>
@@ -39,7 +40,8 @@
                             <div class="card info-card customers-card">
                                 <div class="card-body">
                                     <h5 class="card-title">Teknik Industri Pertanian</h5>
-                                    <a href="/data-mahasiswa/tip" class="btn btn-success"><i class="bi bi-eye"></i></a>
+                                    <a href="/data-mahasiswa/periode/tip" class="btn btn-success"><i
+                                            class="bi bi-eye"></i></a>
                                     <a href="" class="btn btn-danger "><i class="bi bi-trash"></i></a>
                                 </div>
                             </div>
@@ -47,7 +49,8 @@
                             <div class="card info-card customers-card">
                                 <div class="card-body">
                                     <h5 class="card-title">Agroteknologi</h5>
-                                    <a href="/data-mahasiswa/agro" class="btn btn-success"><i class="bi bi-eye"></i></a>
+                                    <a href="/data-mahasiswa/periode/agro" class="btn btn-success"><i
+                                            class="bi bi-eye"></i></a>
                                     <a href="" class="btn btn-danger "><i class="bi bi-trash"></i></a>
                                 </div>
                             </div>
