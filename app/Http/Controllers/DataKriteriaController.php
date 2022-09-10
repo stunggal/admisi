@@ -98,10 +98,9 @@ class DataKriteriaController extends Controller
     public function edit(dataKriteria $dataKriteria)
     {
         $nilaiKriteria = patokanBobotSaintek::all();
-        return view('SubMenu2.data_kriteria', [
+        return view('SubMenu.data_kriteria', [
             'title' => 'ubah nilai kriteria'
         ]);
-        return 'halaman edit';
     }
 
     /**

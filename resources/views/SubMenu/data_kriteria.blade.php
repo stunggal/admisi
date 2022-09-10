@@ -19,57 +19,82 @@
                 <div class="col-lg-8">
                     <!-- Recent Sales -->
                     <div class="col-12">
-                        <div class="card recent-sales overflow-auto">
+                        <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">
-                                    Calon Mahasiswa<span> | Periode</span>
-                                </h5>
-                                <a href="/data-kriteria/edit/{{ $prodi }}"><button class="btn btn-success">perbaharui
-                                        nilai</button></a>
-                                @if (session()->has('delete'))
-                                    <div class="alert alert-success">
-                                        {{ session()->get('delete') }}
-                                    </div>
-                                @endif
-                                <table class="table table-striped datatable">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">No</th>
-                                            <th scope="col">Kriteria</th>
-                                            <th scope="col">Cost / Benefit</th>
-                                            <th scope="col">Bobot</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @php
-                                            $i = 0;
-                                        @endphp
-                                        @foreach ($dataProdi as $data)
-                                            @php
-                                            // echo '<pre>';print_r($data->matematika);die;
-                                                $i++;
-                                            @endphp
-                                            <tr>
-                                                <td>{{ $i }}</td>
-                                                <td>{{ $data->matematika }}</td>
-                                                <td>{{ $data->status }}</td>
+                                <div class="mb-4 mt-4">
+                                    <button type="submit" class="btn btn-success">Ubah Data</button>
+                                    <a href="" type="reset" class="btn btn-secondary">Kembali</a>
+                                </div>
 
-                                                @if ($prodi == 'ti')
-                                                    <td>{{ $data->fisika }}</td>
-                                                @endif
-                                                @if ($prodi == 'tip')
-                                                    <td>{{ $data->biologi }}</td>
-                                                @endif
-                                                @if ($prodi == 'agro')
-                                                    <td>{{ $data->biologi }}</td>
-                                                @endif
+                                <!-- Multi Columns Form -->
+                                <form class="row g-3">
+                                    @foreach ($nilai as $a)
+                                        <div class="col-md-12">
+                                            <label for="inputName5" class="form-label">Nama Camaba</label>
+                                            <input type="text" class="form-control" id="inputName5" value="">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="inputEmail5" class="form-label">Matematika</label>
+                                            <input type="text" class="form-control" id="" value="">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="inputEmail5" class="form-label">Fisika</label>
+                                            <input type="text" class="form-control" id="" value="">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="inputEmail5" class="form-label">Kimia</label>
+                                            <input type="text" class="form-control" id="" value="">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="inputPassword5" class="form-label">Biologi</label>
+                                            <input type="text" class="form-control" id="" value="">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="inputEmail5" class="form-label">Sanggup Studi</label>
+                                            <input type="text" class="form-control" id="" value="">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="inputEmail5" class="form-label">Pilihan Prodi</label>
+                                            <input type="text" class="form-control" id="" value="">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="inputEmail5" class="form-label">Bahasa Inggris</label>
+                                            <input type="text" class="form-control" id="" value="">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="inputPassword5" class="form-label">Ujian Lisan</label>
+                                            <input type="text" class="form-control" id="" value="">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="inputEmail5" class="form-label">Bahasa Arab</label>
+                                            <input type="text" class="form-control" id="" value="">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="inputEmail5" class="form-label">Pemikiran</label>
+                                            <input type="text" class="form-control" id="" value="">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="inputPassword5" class="form-label">Pendanaan</label>
+                                            <input type="text" class="form-control" id="" value="">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="inputEmail5" class="form-label">Studi terakhir</label>
+                                            <input type="text" class="form-control" id="" value="">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="inputPassword5" class="form-label">Penghasilan</label>
+                                            <input type="text" class="form-control" id="" value="">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="inputCity" class="form-label">Rata-rata</label>
+                                            <input type="text" class="form-control" id="inputCity">
+                                        </div>
+                                    @endforeach
+                                </form><!-- End Multi Columns Form -->
 
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
                             </div>
                         </div>
+
                     </div>
                     <!-- End Recent Sales -->
                 </div>
