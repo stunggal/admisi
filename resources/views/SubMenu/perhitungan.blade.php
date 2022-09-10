@@ -139,69 +139,6 @@
         </section>
         <section class="section">
             <div class="row">
-                <div class="col-lg-11">
-                    <!-- Recent Sales -->
-                    <div class="col-12">
-                        <div class="card recent-sales overflow-auto">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    Perhitungan Pangkat<span> | Periode</span>
-                                </h5>
-                                @if (session()->has('delete'))
-                                    <div class="alert alert-success">
-                                        {{ session()->get('delete') }}
-                                    </div>
-                                @endif
-                                <table class="table table-striped datatable">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col"></th>
-                                            <th scope="col">C1</th>
-                                            <th scope="col">C2</th>
-                                            <th scope="col">C3</th>
-                                            <th scope="col">C4</th>
-                                            <th scope="col">C5</th>
-                                            <th scope="col">C6</th>
-                                            <th scope="col">C7</th>
-                                            <th scope="col">C8</th>
-                                            <th scope="col">C9</th>
-                                            <th scope="col">C10</th>
-                                            <th scope="col">C11</th>
-                                            <th scope="col">C12</th>
-                                            <th scope="col">C13</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Cost / Benefit</td>
-                                            @foreach ($arrVector as $item)
-                                                <td>{{ $item['costBenefit'] }}</td>
-                                            @endforeach
-                                        </tr>
-                                        <tr>
-                                            <td>Bobot Kepentingan</td>
-                                            @foreach ($arrVector as $item)
-                                                <td>
-                                                    @if ($item['costBenefit'] == 'cost')
-                                                        -{{ $item['nilai'] }}
-                                                    @else
-                                                        {{ $item['nilai'] }}
-                                                    @endif
-
-                                                </td>
-                                            @endforeach
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Recent Sales -->
-                </div>
-            </div>
-        </section>
-        <section class="section">
-            <div class="row">
                 <div class="col-lg-8">
                     <!-- Recent Sales -->
                     <div class="col-12">

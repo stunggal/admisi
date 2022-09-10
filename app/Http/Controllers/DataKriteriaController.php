@@ -95,11 +95,12 @@ class DataKriteriaController extends Controller
      * @param  \App\Models\dataKriteria  $dataKriteria
      * @return \Illuminate\Http\Response
      */
-    public function edit(dataKriteria $dataKriteria)
+    public function edit(dataKriteria $dataKriteria, $id)
     {
-        $nilaiKriteria = patokanBobotSaintek::all();
+        $nilaiKriteria = patokanBobotSaintek::where('id', $id)->first();
         return view('SubMenu.data_kriteria', [
-            'title' => 'ubah nilai kriteria'
+            'title' => 'ubah nilai kriteria',
+            'nilaiKriteria' => $nilaiKriteria
         ]);
     }
 
@@ -110,52 +111,27 @@ class DataKriteriaController extends Controller
      * @param  \App\Models\dataKriteria  $dataKriteria
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, dataKriteria $dataKriteria, $prodi)
+    public function update(Request $request, dataKriteria $dataKriteria, $id)
     {
         $validatedData = $request->validate([
-            'mtk' => 'required|between:1,5',
-            'fsk' => 'required|between:1,5',
-            'kma' => 'required|between:1,5',
-            'bio' => 'required|between:1,5',
-            'ar' => 'required|between:1,5',
-            'en' => 'required|between:1,5',
-            'prodi' => 'required|between:1,5',
-            'lisan' => 'required|between:1,5',
+            'matematika' => 'required|between:1,5',
+            'fisika' => 'required|between:1,5',
+            'kimia' => 'required|between:1,5',
+            'biologi' => 'required|between:1,5',
+            'kesanggupan' => 'required|between:1,5',
+            'pilihan' => 'required|between:1,5',
+            'inggris' => 'required|between:1,5',
+            'ujian_lisan' => 'required|between:1,5',
+            'arab' => 'required|between:1,5',
             'pemikiran' => 'required|between:1,5',
-            'sanggup' => 'required|between:1,5',
             'pendanaan' => 'required|between:1,5',
-            'pendidikan' => 'required|between:1,5',
+            'pendidikan_terakhir' => 'required|between:1,5',
             'penghasilan' => 'required|between:1,5',
         ]);
 
-
-
-
-        // $Updateperiode = periode::findOrFail($periode);
-        // $Updateperiode->update($validatedData);
-        // return redirect('/periode')->with('success', 'Period has been updated');
-
-        // $arr = array('first' => 'a', 'second' => 'b',);
-        // $key = array_search('a', $arr);
-        // return $key;
-        function ulangi($key)
-        {
-
-            $coba = patokanBobotSaintek::where('kriteria', 'pendanaan')->first();
-            $data['ti'] = $key;
-            $coba->update($data);
-        };
-
-        foreach ($validatedData as $key) {
-            ulangi($key);
-        }
-
-
-
-
-
-
-        return 'dah';
+        $nilaiKriteria = patokanBobotSaintek::findOrFail($id);
+        $nilaiKriteria->update($validatedData);
+        return redirect('/data-kriteria')->with('success', 'Period has been updated');
     }
 
     /**

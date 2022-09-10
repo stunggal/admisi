@@ -166,6 +166,13 @@ class DataMahasiswaController extends Controller
             'pendidikan_terakhir' => 'required',
             'penghasilan' => 'required',
         ]);
+        $isaintek['matematika'] /= 2;
+        $isaintek['fisika'] /= 2;
+        $isaintek['biologi'] /= 2;
+        $isaintek['kimia'] /= 2;
+        $isaintek['inggris'] /= 2;
+        $isaintek['ujian_lisan'] /= 2;
+        $isaintek['arab'] /= 2;
 
         // $pemikiran = patokanBobotSaintek::where('kriteria', 'Pemikiran')->get();
         // $total = 0;

@@ -45,10 +45,10 @@ class PerhitunganController extends Controller
         $jumlahPatokanBobotSaintekTi = 0;
         $arrayPatokanBobotSaintekTi = [];
 
-        foreach ($patokanBobotSaintekTi as $key) {
-            $jumlahPatokanBobotSaintekTi += $key['ti'];
-        }
-
+        // foreach ($patokanBobotSaintekTi as $key) {
+        //     $jumlahPatokanBobotSaintekTi += $key['ti'];
+        // }
+        
         foreach ($patokanBobotSaintekTi as $key) {
             array_push($arrayPatokanBobotSaintekTi, $key["ti"] / $jumlahPatokanBobotSaintekTi);
         }
@@ -70,19 +70,19 @@ class PerhitunganController extends Controller
         $i = -1;
         foreach ($dataMahasiswaTi as $item) {
             $i++;
-            $mtk = $item->matematika ** $arrVector['0']['nilai'];
-            $fsk = $item->fisika ** $arrVector['1']['nilai'];
-            $kma = $item->kimia ** $arrVector['2']['nilai'];
-            $bio = $item->biologi ** $arrVector['3']['nilai'];
-            $sanggup = $item->kesanggupan ** $arrVector['4']['nilai'];
-            $pil = $item->pilihan ** $arrVector['5']['nilai'];
-            $ing = $item->inggris ** $arrVector['6']['nilai'];
-            $lisan = $item->ujian_lisan ** $arrVector['7']['nilai'];
-            $arab = $item->arab ** $arrVector['8']['nilai'];
-            $mikir = $item->pemikiran ** $arrVector['9']['nilai'];
-            $dana = $item->pendanaan ** $arrVector['10']['nilai'];
-            $didik = $item->pendidikan_terakhir ** $arrVector['11']['nilai'];
-            $hasil = $item->penghasilan ** $arrVector['12']['nilai'];
+            $mtk = $item->matematika ** $arrayStatus['0']['nilai'];
+            $fsk = $item->fisika ** $arrayStatus['1']['nilai'];
+            $kma = $item->kimia ** $arrayStatus['2']['nilai'];
+            $bio = $item->biologi ** $arrayStatus['3']['nilai'];
+            $sanggup = $item->kesanggupan ** $arrayStatus['4']['nilai'];
+            $pil = $item->pilihan ** $arrayStatus['5']['nilai'];
+            $ing = $item->inggris ** $arrayStatus['6']['nilai'];
+            $lisan = $item->ujian_lisan ** $arrayStatus['7']['nilai'];
+            $arab = $item->arab ** $arrayStatus['8']['nilai'];
+            $mikir = $item->pemikiran ** $arrayStatus['9']['nilai'];
+            $dana = $item->pendanaan ** $arrayStatus['10']['nilai'];
+            $didik = $item->pendidikan_terakhir ** $arrayStatus['11']['nilai'];
+            $hasil = $item->penghasilan ** $arrayStatus['12']['nilai'];
 
             $vectorS[$i] = $mtk * $fsk * $kma * $bio * $sanggup * $pil * $ing * $lisan * $arab * $mikir * $dana * $didik * $hasil;
         }

@@ -10,8 +10,18 @@ class patokanBobotSaintek extends Model
     use HasFactory;
 
     protected $fillable = [
-        'ti',
-        'tip',
-        'agro',
+        'matematika',
+        'fisika',
+        'kimia',
+        'biologi',
+        'kesanggupan',
+        'pilihan',
+        'inggris',
+        'ujian_lisan',
+        'arab',
+        'pemikiran',
+        'pendanaan',
+        'pendidikan_terakhir',
+        'penghasilan',
     ];
 }
