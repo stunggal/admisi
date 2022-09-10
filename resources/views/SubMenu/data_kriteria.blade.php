@@ -24,6 +24,8 @@
                                 <h5 class="card-title">
                                     Calon Mahasiswa<span> | Periode</span>
                                 </h5>
+                                <a href="/data-kriteria/edit/{{ $prodi }}"><button class="btn btn-success">perbaharui
+                                        nilai</button></a>
                                 @if (session()->has('delete'))
                                     <div class="alert alert-success">
                                         {{ session()->get('delete') }}

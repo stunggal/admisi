@@ -26,6 +26,8 @@ Route::get('/', [DashboardController::class, 'index']);
 
 Route::get('/data-kriteria', [DataKriteriaController::class, 'index']);
 Route::get('/data-kriteria/{prodi}', [DataKriteriaController::class, 'prodi']);
+Route::get('/data-kriteria/edit/{prodi}', [DataKriteriaController::class, 'edit']);
+Route::post('/data-kriteria/edit/{prodi}', [DataKriteriaController::class, 'update']);
 
 Route::get('/data-mahasiswa', [DataMahasiswaController::class, 'index']);
 Route::get('/data-mahasiswa/create', [DataMahasiswaController::class, 'create']);

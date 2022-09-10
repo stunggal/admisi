@@ -87,7 +87,11 @@ class DataKriteriaController extends Controller
      */
     public function edit(dataKriteria $dataKriteria)
     {
-        //
+        $nilaiKriteria = patokanBobotSaintek::all();
+        return view('SubMenu2.data_kriteria', [
+            'title' => 'ubah nilai kriteria'
+        ]);
+        return 'halaman edit';
     }
 
     /**
@@ -97,9 +101,52 @@ class DataKriteriaController extends Controller
      * @param  \App\Models\dataKriteria  $dataKriteria
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, dataKriteria $dataKriteria)
+    public function update(Request $request, dataKriteria $dataKriteria, $prodi)
     {
-        //
+        $validatedData = $request->validate([
+            'mtk' => 'required|between:1,5',
+            'fsk' => 'required|between:1,5',
+            'kma' => 'required|between:1,5',
+            'bio' => 'required|between:1,5',
+            'ar' => 'required|between:1,5',
+            'en' => 'required|between:1,5',
+            'prodi' => 'required|between:1,5',
+            'lisan' => 'required|between:1,5',
+            'pemikiran' => 'required|between:1,5',
+            'sanggup' => 'required|between:1,5',
+            'pendanaan' => 'required|between:1,5',
+            'pendidikan' => 'required|between:1,5',
+            'penghasilan' => 'required|between:1,5',
+        ]);
+
+
+
+
+        // $Updateperiode = periode::findOrFail($periode);
+        // $Updateperiode->update($validatedData);
+        // return redirect('/periode')->with('success', 'Period has been updated');
+
+        // $arr = array('first' => 'a', 'second' => 'b',);
+        // $key = array_search('a', $arr);
+        // return $key;
+        function ulangi($key)
+        {
+
+            $coba = patokanBobotSaintek::where('kriteria', 'pendanaan')->first();
+            $data['ti'] = $key;
+            $coba->update($data);
+        };
+
+        foreach ($validatedData as $key) {
+            ulangi($key);
+        }
+
+
+
+
+
+
+        return 'dah';
     }
 
     /**
