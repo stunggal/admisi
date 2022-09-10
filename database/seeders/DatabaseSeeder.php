@@ -31,6 +31,6 @@ class DatabaseSeeder extends Seeder
         humaniora::factory()->times(90)->create();
         camaba::factory(100)->create();
         periode::factory()->times(5)->create();
-        patokanBobotSaintek::factory()->times(13)->create();
+        patokanBobotSaintek::factory()->times(3)->create();
     }
 }

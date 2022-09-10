@@ -17,11 +17,20 @@ class PatokanBobotSaintekFactory extends Factory
     public function definition()
     {
         return [
-            'kriteria' => $this->faker->unique()->randomElement(['Matematika', 'Fisika', 'Kimia', 'Biologi', 'Kesanggupan Studi', 'Pilihan Prodi', 'Bahasa Inggris', 'Ujian Lisan', 'Bahasa Arab', 'Pemikiran', 'Pendanaan', 'Pendidikan Terakhir', 'Penghasilan Perbulan']),
-            'ti' => $this->faker->numberBetween(1, 5),
-            'tip' => $this->faker->numberBetween(1, 5),
-            'agro' => $this->faker->numberBetween(1, 5),
-            'status' => $this->faker->randomElement(['cost', 'benefit']),
+            'prodi' => $this->faker->unique()->randomElement(['Teknik Informatika', 'Teknik Industri Pertanian', 'Agroteknologi']),
+            'matematika' => $this->faker->numberBetween(1, 5),
+            'fisika' => $this->faker->numberBetween(1, 5),
+            'kimia' => $this->faker->numberBetween(1, 5),
+            'biologi' => $this->faker->numberBetween(1, 5),
+            'kesanggupan' => $this->faker->numberBetween(1, 5),
+            'pilihan' => $this->faker->numberBetween(1, 5),
+            'inggris' => $this->faker->numberBetween(1, 5),
+            'ujian_lisan' => $this->faker->numberBetween(1, 5),
+            'arab' => $this->faker->numberBetween(1, 5),
+            'pemikiran' => $this->faker->numberBetween(1, 5),
+            'pendanaan' => $this->faker->numberBetween(1, 5),
+            'pendidikan_terakhir' => $this->faker->numberBetween(1, 5),
+            'penghasilan' => $this->faker->numberBetween(1, 5),
         ];
     }
 }

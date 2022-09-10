@@ -15,11 +15,20 @@ return new class extends Migration
     {
         Schema::create('patokan_bobot_sainteks', function (Blueprint $table) {
             $table->id();
-            $table->string('kriteria');
-            $table->string('ti');
-            $table->string('tip');
-            $table->string('agro');
-            $table->string('status');
+            $table->string('prodi');
+            $table->integer('matematika');
+            $table->integer('fisika');
+            $table->integer('kimia');
+            $table->integer('biologi');
+            $table->integer('kesanggupan');
+            $table->integer('pilihan');
+            $table->integer('inggris');
+            $table->integer('ujian_lisan');
+            $table->integer('arab');
+            $table->integer('pemikiran');
+            $table->integer('pendanaan');
+            $table->integer('pendidikan_terakhir');
+            $table->integer('penghasilan');
             $table->timestamps();
         });
     }

@@ -7,6 +7,7 @@ use App\Models\patokanBobotSaintek;
 use App\Models\prodi;
 use App\Models\saintek;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DataKriteriaController extends Controller
 {
@@ -17,9 +18,13 @@ class DataKriteriaController extends Controller
      */
     public function index()
     {
+        $dataProdi = patokanBobotSaintek::all();
+        // $dataProdi = DB::table('patokan_bobot_sainteks')->where('id', '=', '3')->get();
 
         return view('Menu.data_kriteria', [
             'title' => 'Data Kriteria',
+            'dataProdi' => $dataProdi,
+
         ]);
     }
 
@@ -37,7 +42,12 @@ class DataKriteriaController extends Controller
             $title = 'Ilmu Komunikasi';
         }
 
-        $dataProdi = patokanBobotSaintek::all();
+        // $dataProdi = patokanBobotSaintek::where('id', '=', '3');
+        $dataProdi = DB::table('patokan_bobot_sainteks')->where('id', '=', '3')->get();
+
+        // echo '<pre>';
+        // print_r($dataProdi);
+        // die;
 
         return view('SubMenu.data_kriteria', [
             'title' => $title,

@@ -8,64 +8,145 @@
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item">Data Kategori</li>
                     <li class="breadcrumb-item active">{{ $title }}</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
+
         <section class="section">
             <div class="row">
 
-                <!-- Left side columns -->
-                <div class="col-lg-8">
-                    <div class="row">
+                <div class="col-lg-12">
+                    <!-- Recent Sales -->
+                    <div class="col-12">
+                        <div class="card recent-sales overflow-auto">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    Sains dan Teknologi<span> | Nilai Bobot</span>
+                                </h5>
 
-                        <!-- Customers Card -->
-                        <div class="col-xxl-4 col-xl-12">
+                                <table class="table table-striped datatable">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">No</th>
+                                            <th scope="col">Prodi</th>
+                                            <th scope="col">Math</th>
+                                            <th scope="col">Fisika</th>
+                                            <th scope="col">Kimia</th>
+                                            <th scope="col">Biologi</th>
+                                            <th scope="col">Sanggup Studi</th>
+                                            <th scope="col">pilihan</th>
+                                            <th scope="col">Inggris</th>
+                                            <th scope="col">Lisan</th>
+                                            <th scope="col">Arab</th>
+                                            <th scope="col">Fikir</th>
+                                            <th scope="col">Dana</th>
+                                            <th scope="col">Studi</th>
+                                            <th scope="col">Hasil</th>
+                                            <th scope="col">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @php
+                                            $i = 0;
+                                        @endphp
+                                        @foreach ($dataProdi as $data)
+                                            @php
+                                                $i++;
+                                            @endphp
+                                            <tr>
+                                                <td>{{ $i }}</td>
+                                                <td>{{ $data->prodi }}</td>
+                                                <td>{{ $data->matematika }}</td>
+                                                <td>{{ $data->fisika }}</td>
+                                                <td>{{ $data->kimia }}</td>
+                                                <td>{{ $data->biologi }}</td>
+                                                <td>{{ $data->kesanggupan }}</td>
+                                                <td>{{ $data->pilihan }}</td>
+                                                <td>{{ $data->inggris }}</td>
+                                                <td>{{ $data->ujian_lisan }}</td>
+                                                <td>{{ $data->arab }}</td>
+                                                <td>{{ $data->pemikiran }}</td>
+                                                <td>{{ $data->pendanaan }}</td>
+                                                <td>{{ $data->pendidikan_terakhir }}</td>
+                                                <td>{{ $data->penghasilan }}</td>
+                                                <td><a href="/data-kriteria/edit" class="btn btn-success"><i
+                                                            class="bi bi-pencil"></i></a></td>
 
-                            <div class="card info-card customers-card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Tenik informatika</h5>
-                                    <a href="/data-kriteria/ti" class="btn btn-success"><i class="bi bi-eye"></i></a>
-                                    <a href="" class="btn btn-danger "><i class="bi bi-trash"></i></a>
-                                </div>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
-
-                            <div class="card info-card customers-card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Tenik Industri Pertanian</h5>
-                                    <a href="/data-kriteria/tip" class="btn btn-success"><i class="bi bi-eye"></i></a>
-                                    <a href="" class="btn btn-danger "><i class="bi bi-trash"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="card info-card customers-card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Agroteknologi</h5>
-                                    <a href="/data-kriteria/agro" class="btn btn-success"><i class="bi bi-eye"></i></a>
-                                    <a href="" class="btn btn-danger "><i class="bi bi-trash"></i></a>
-                                </div>
-                            </div>
-
-                            {{-- <div class="card info-card customers-card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Hubungan Internasional</h5>
-                                    <a href="/data-kriteria/agro" class="btn btn-success"><i class="bi bi-eye"></i></a>
-                                    <a href="" class="btn btn-danger "><i class="bi bi-trash"></i></a>
-                                </div>
-                            </div>
-
-                            <div class="card info-card customers-card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Ilmu Komunikasi</h5>
-                                    <a href="/data-kriteria/ilkom" class="btn btn-success"><i class="bi bi-eye"></i></a>
-                                    <a href="" class="btn btn-danger "><i class="bi bi-trash"></i></a>
-                                </div>
-                            </div> --}}
-
-                        </div><!-- End Customers Card -->
-
+                        </div>
                     </div>
-                </div><!-- End Left side columns -->
+                    <!-- End Recent Sales -->
+                </div>
+
+                <div class="col-lg-12">
+                    <!-- Recent Sales -->
+                    <div class="col-12">
+                        <div class="card recent-sales overflow-auto">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    Humaniora<span> | Nilai Bobot</span>
+                                </h5>
+
+                                <table class="table table-striped datatable">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">No</th>
+                                            <th scope="col">Prodi</th>
+                                            <th scope="col">P.Umum</th>
+                                            <th scope="col">Sanggup Studi</th>
+                                            <th scope="col">pilihan</th>
+                                            <th scope="col">Inggris</th>
+                                            <th scope="col">Lisan</th>
+                                            <th scope="col">Arab</th>
+                                            <th scope="col">Fikir</th>
+                                            <th scope="col">Dana</th>
+                                            <th scope="col">Studi</th>
+                                            <th scope="col">Hasil</th>
+                                            <th scope="col">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @php
+                                            $i = 0;
+                                        @endphp
+                                        {{-- @foreach ($dataProdi as $data)
+                                            @php
+                                                $i++;
+                                            @endphp
+                                            <tr>
+                                                <td>{{ $i }}</td>
+                                                <td>{{ $data->prodi }}</td>
+                                                <td>{{ $data->matematika }}</td>
+                                                <td>{{ $data->fisika }}</td>
+                                                <td>{{ $data->kimia }}</td>
+                                                <td>{{ $data->biologi }}</td>
+                                                <td>{{ $data->kesanggupan }}</td>
+                                                <td>{{ $data->pilihan }}</td>
+                                                <td>{{ $data->inggris }}</td>
+                                                <td>{{ $data->ujian_lisan }}</td>
+                                                <td>{{ $data->arab }}</td>
+                                                <td>{{ $data->pemikiran }}</td>
+                                                <td>{{ $data->pendanaan }}</td>
+                                                <td>{{ $data->pendidikan_terakhir }}</td>
+                                                <td>{{ $data->penghasilan }}</td>
+                                                <td><a href="/data-kriteria/edit" class="btn btn-success"><i
+                                                            class="bi bi-pencil"></i></a></td>
+
+                                            </tr>
+                                        @endforeach --}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Recent Sales -->
+                </div>
 
             </div>
         </section>

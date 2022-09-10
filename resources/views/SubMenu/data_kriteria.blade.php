@@ -44,23 +44,24 @@
                                         @php
                                             $i = 0;
                                         @endphp
-                                        @foreach ($dataProdi as $saintek)
+                                        @foreach ($dataProdi as $data)
                                             @php
+                                            // echo '<pre>';print_r($data->matematika);die;
                                                 $i++;
                                             @endphp
                                             <tr>
                                                 <td>{{ $i }}</td>
-                                                <td>{{ $saintek->kriteria }}</td>
-                                                <td>{{ $saintek->status }}</td>
+                                                <td>{{ $data->matematika }}</td>
+                                                <td>{{ $data->status }}</td>
 
                                                 @if ($prodi == 'ti')
-                                                    <td>{{ $saintek->ti }}</td>
+                                                    <td>{{ $data->fisika }}</td>
                                                 @endif
                                                 @if ($prodi == 'tip')
-                                                    <td>{{ $saintek->tip }}</td>
+                                                    <td>{{ $data->biologi }}</td>
                                                 @endif
                                                 @if ($prodi == 'agro')
-                                                    <td>{{ $saintek->agro }}</td>
+                                                    <td>{{ $data->biologi }}</td>
                                                 @endif
 
                                             </tr>
