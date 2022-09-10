@@ -116,25 +116,24 @@
                                         @enderror
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="inputEmail5" class="form-label">Sanggup Studi</label>
-                                        <input type="text"
-                                            class="form-control @error('kesanggupan') is-invalid @enderror" id="kesanggupan"
-                                            name="kesanggupan">
-                                        @error('kesanggupan')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                        <label for="kesanggupan" class="form-label">kesanggupan</label>
+                                        <select class="form-select" name="kesanggupan">
+                                            <option selected=""></option>
+                                            <option value="5">lanjut S2</option>
+                                            <option value="4">S1 + Staff</option>
+                                            <option value="3">S1</option>
+                                            <option value="2">1/2 tahun</option>
+                                            <option value="1">tidak tau</option>
+                                        </select>
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="inputEmail5" class="form-label">Pilihan Prodi</label>
-                                        <input type="text" class="form-control @error('pilihan') is-invalid @enderror"
-                                            id="pilihan" name="pilihan">
-                                        @error('pilihan')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                        <label for="pilihan" class="form-label">pilihan</label>
+                                        <select class="form-select" name="pilihan">
+                                            <option selected=""></option>
+                                            <option value="5">pertama</option>
+                                            <option value="3">kedua</option>
+                                            <option value="2">ketiga</option>
+                                        </select>
                                     </div>
                                     <div class="col-md-3">
                                         <label for="inputEmail5" class="form-label">Bahasa Inggris</label>
@@ -177,40 +176,35 @@
                                         </select>
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="inputPassword5" class="form-label">Pendanaan</label>
-                                        <input type="text"
-                                            class="form-control @error('pendanaan') is-invalid @enderror" id="pendanaan"
-                                            name="pendanaan">
-                                        @error('pendanaan')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                        <label for="pendanaan" class="form-label">pendanaan</label>
+                                        <select class="form-select" name="pendanaan">
+                                            <option selected=""></option>
+                                            <option value="4">organisasi</option>
+                                            <option value="3">keluarga</option>
+                                            <option value="2">wali</option>
+                                        </select>
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="inputEmail5" class="form-label">Studi terakhir</label>
-                                        <input type="text"
-                                            class="form-control @error('pendidikan_terakhir') is-invalid @enderror"
-                                            id="pendidikan_terakhir" name="pendidikan_terakhir">
-                                        @error('pendidikan_terakhir')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                        <label for="pendidikan_terakhir" class="form-label">pendidikan terakhir</label>
+                                        <select class="form-select" name="pendidikan_terakhir">
+                                            <option selected=""></option>
+                                            <option value="5">s3</option>
+                                            <option value="4">s2</option>
+                                            <option value="3">s1</option>
+                                            <option value="2">sma kebawah</option>
+                                        </select>
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="inputPassword5" class="form-label">Penghasilan</label>
-                                        <input type="text"
-                                            class="form-control @error('penghasilan') is-invalid @enderror"
-                                            id="penghasilan" name="penghasilan">
-                                        @error('penghasilan')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                        <label for="penghasilan" class="form-label">penghasilan</label>
+                                        <select class="form-select" name="penghasilan">
+                                            <option selected=""></option>
+                                            <option value="5">> 10Jt</option>
+                                            <option value="4">5Jt - 9Jt</option>
+                                            <option value="3">2Jt - 4Jt</option>
+                                            <option value="2">
+                                                < 1Jt</option>
+                                        </select>
                                     </div>
-                                    {{-- @endforeach --}}
-                                    <!-- End Multi Columns Form -->
 
                                     <div class="mt-4">
                                         <button type="submit" class="btn btn-success">Simpan Data</button>

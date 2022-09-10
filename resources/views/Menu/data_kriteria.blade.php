@@ -72,7 +72,8 @@
                                                 <td>{{ $data->pendidikan_terakhir }}</td>
                                                 <td>{{ $data->penghasilan }}</td>
                                                 <td>
-                                                    <a href="/data-kriteria/edit" class="btn btn-success">
+                                                    <a href="/data-kriteria/edit/{{ $data->id }}"
+                                                        class="btn btn-success">
                                                         <i class="bi bi-pencil"></i>
                                                     </a>
                                                 </td>
