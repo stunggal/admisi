@@ -16,7 +16,7 @@ class PerhitunganController extends Controller
      */
     public function index()
     {
-        return view('Menu.perhitungan', [
+        return view('perhitungan.index', [
             'title' => 'Perhitungan'
         ]);
     }
@@ -48,7 +48,7 @@ class PerhitunganController extends Controller
         // foreach ($patokanBobotSaintekTi as $key) {
         //     $jumlahPatokanBobotSaintekTi += $key['ti'];
         // }
-        
+
         foreach ($patokanBobotSaintekTi as $key) {
             array_push($arrayPatokanBobotSaintekTi, $key["ti"] / $jumlahPatokanBobotSaintekTi);
         }
@@ -107,7 +107,7 @@ class PerhitunganController extends Controller
         // die;
 
 
-        return view('SubMenu.perhitungan', [
+        return view('perhitungan.perhitungan', [
             'title' => $title,
             'dataMahasiswaTi' => $dataMahasiswaTi,
             'patokanBobotSaintekTi' => $patokanBobotSaintekTi,

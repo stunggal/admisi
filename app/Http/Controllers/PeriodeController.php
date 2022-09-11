@@ -16,7 +16,7 @@ class PeriodeController extends Controller
     {
         $periode = periode::all();
 
-        return view('Menu.periode', [
+        return view('periode.index', [
             'title' => 'Periode',
             'periode' => $periode
         ]);
@@ -72,7 +72,7 @@ class PeriodeController extends Controller
         $periode = periode::where('id', $id)->get();
 
         return view(
-            'SubMenu.periode',
+            'periode.edit',
             [
                 'periode' => $periode,
                 'title' => 'Edit',
@@ -96,7 +96,7 @@ class PeriodeController extends Controller
         $validatedData['status'] = $request['status'];
         $Updateperiode = periode::findOrFail($periode);
         $Updateperiode->update($validatedData);
-        return redirect('/periode')->with('success', 'Period has been updated');
+        return redirect('/periode')->with('success', 'Status periode berhasil diperbaharui');
     }
 
     /**
@@ -113,6 +113,6 @@ class PeriodeController extends Controller
     public function destroyed($periode)
     {
         periode::destroy('id', $periode);
-        return redirect('/periode')->with('delete', 'Period has been delete');
+        return redirect('/periode')->with('delete', 'Periode berhasil dihapus');
     }
 }

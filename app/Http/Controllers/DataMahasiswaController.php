@@ -21,8 +21,18 @@ class DataMahasiswaController extends Controller
     public function index()
     {
 
-        return view('Menu.data_mahasiswa', [
+        return view('dataMhs.index', [
             'title' => 'Data Mahasiswa',
+        ]);
+    }
+
+    public function perperiode($prodi)
+    {
+        $periodes = periode::all();
+        return view('dataMhs.perperiode', [
+            'periodes' => $periodes,
+            'prodi' => $prodi,
+            'title' => 'Periode'
         ]);
     }
 
@@ -35,20 +45,10 @@ class DataMahasiswaController extends Controller
             ->orWhere('camabas.prodi3', 'Teknik Informatika')
             ->get();
 
-        return view('SubMenu2.datapribadi', [
+        return view('dataMhs.editData', [
             'title' => 'Data Mahasiswa',
             'nilai' => $nilai->where('camaba_id', $id)
 
-        ]);
-    }
-
-    public function perperiode($prodi)
-    {
-        $periodes = periode::all();
-        return view('Menu.perperiode', [
-            'periodes' => $periodes,
-            'prodi' => $prodi,
-            'title' => 'perprodi'
         ]);
     }
 
@@ -89,7 +89,7 @@ class DataMahasiswaController extends Controller
                 ->get();
         }
 
-        return view('SubMenu.data_mahasiswa', [
+        return view('dataMhs.dataMhs', [
             'title' => $title,
             'data' => $data,
         ]);
@@ -129,7 +129,7 @@ class DataMahasiswaController extends Controller
      */
     public function create()
     {
-        return view('CRUD.tambahData', [
+        return view('dataMhs.tambahData', [
             'title' => 'Input Data'
         ]);
     }

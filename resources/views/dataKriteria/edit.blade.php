@@ -21,11 +21,12 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
+                                <h5 class="card-title">{{ $nilaiKriteria['prodi'] }} | <span>{{ $title }}</span></h5>
                                 <form class="row g-3" action="" method="post">
                                     @csrf
                                     <div class="mb-4 mt-4">
                                         <button type="submit" class="btn btn-success">Ubah Data</button>
-                                        <a href="" type="reset" class="btn btn-secondary">Kembali</a>
+                                        <a href="/data-kriteria" type="reset" class="btn btn-secondary">Kembali</a>
                                     </div>
 
                                     <!-- Multi Columns Form -->
