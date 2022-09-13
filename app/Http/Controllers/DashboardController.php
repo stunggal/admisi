@@ -14,8 +14,8 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('Menu.index',[
-            'title'=>'Beranda'
+        return view('beranda.index', [
+            'title' => 'Beranda'
         ]);
     }
 

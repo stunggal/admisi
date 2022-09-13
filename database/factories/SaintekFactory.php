@@ -23,7 +23,6 @@ class SaintekFactory extends Factory
             'kimia' => $this->faker->numberBetween(1, 5),
             'biologi' => $this->faker->numberBetween(1, 5),
             'kesanggupan' => $this->faker->numberBetween(1, 5),
-            'pilihan' => $this->faker->numberBetween(1, 5),
             'inggris' => $this->faker->numberBetween(1, 5),
             'ujian_lisan' => $this->faker->numberBetween(1, 5),
             'arab' => $this->faker->numberBetween(1, 5),

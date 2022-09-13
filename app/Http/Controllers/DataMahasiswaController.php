@@ -21,8 +21,18 @@ class DataMahasiswaController extends Controller
     public function index()
     {
 
-        return view('Menu.data_mahasiswa', [
+        return view('dataMhs.index', [
             'title' => 'Data Mahasiswa',
+        ]);
+    }
+
+    public function perperiode($prodi)
+    {
+        $periodes = periode::all();
+        return view('dataMhs.perperiode', [
+            'periodes' => $periodes,
+            'prodi' => $prodi,
+            'title' => 'Periode'
         ]);
     }
 
@@ -35,20 +45,10 @@ class DataMahasiswaController extends Controller
             ->orWhere('camabas.prodi3', 'Teknik Informatika')
             ->get();
 
-        return view('SubMenu2.datapribadi', [
+        return view('dataMhs.editData', [
             'title' => 'Data Mahasiswa',
             'nilai' => $nilai->where('camaba_id', $id)
 
-        ]);
-    }
-
-    public function perperiode($prodi)
-    {
-        $periodes = periode::all();
-        return view('Menu.perperiode', [
-            'periodes' => $periodes,
-            'prodi' => $prodi,
-            'title' => 'perprodi'
         ]);
     }
 
@@ -89,7 +89,7 @@ class DataMahasiswaController extends Controller
                 ->get();
         }
 
-        return view('SubMenu.data_mahasiswa', [
+        return view('dataMhs.dataMhs', [
             'title' => $title,
             'data' => $data,
         ]);
@@ -111,9 +111,6 @@ class DataMahasiswaController extends Controller
         //         ->get();
         // }
 
-
-
-
         // // $ti = camaba::all();
 
         // return view('SubMenu.data_mahasiswa', [
@@ -129,9 +126,25 @@ class DataMahasiswaController extends Controller
      */
     public function create()
     {
-        return view('CRUD.tambahData', [
+        return view('dataMhs.tambahData', [
             'title' => 'Input Data'
         ]);
+    }
+
+    public function bobot($bobot)
+    {
+        if ($bobot == 0 - 2) {
+            $value = '2';
+        } elseif ($bobot == 3 - 4) {
+            $value = '3';
+        } elseif ($bobot == 5 - 6) {
+            $value = '4';
+        } elseif ($bobot == 7 - 8) {
+            $value = '5';
+        }
+        echo '<pre>';
+        print_r($bobot);
+        die;
     }
 
     /**
@@ -173,15 +186,6 @@ class DataMahasiswaController extends Controller
         $isaintek['inggris'] /= 2;
         $isaintek['ujian_lisan'] /= 2;
         $isaintek['arab'] /= 2;
-
-        // $pemikiran = patokanBobotSaintek::where('kriteria', 'Pemikiran')->get();
-        // $total = 0;
-
-        // # Teknik Informatika    
-        // foreach ($pemikiran as $value) {
-        //     $total += $value->ti;
-        //     $nilaiPemikiran = $value->ti;
-        // }
 
         $isaintek['camaba_id'] = $camaba_id;
         $icamaba['periode'] = 0;

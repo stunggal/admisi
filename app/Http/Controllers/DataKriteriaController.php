@@ -21,7 +21,7 @@ class DataKriteriaController extends Controller
         $dataProdi = patokanBobotSaintek::all();
         // $dataProdi = DB::table('patokan_bobot_sainteks')->where('id', '=', '3')->get();
 
-        return view('Menu.data_kriteria', [
+        return view('dataKriteria.index', [
             'title' => 'Data Kriteria',
             'dataProdi' => $dataProdi,
 
@@ -30,31 +30,26 @@ class DataKriteriaController extends Controller
 
     public function prodi($prodi)
     {
-        if ($prodi == 'ti') {
-            $title = 'Teknik Informatika';
-        } elseif ($prodi == 'tip') {
-            $title = 'Teknik Industri Pertanian';
-        } elseif ($prodi == 'agro') {
-            $title = 'Agroteknologi';
-        } elseif ($prodi == 'hi') {
-            $title = 'Hubungan Internasional';
-        } elseif ($prodi == 'ilkom') {
-            $title = 'Ilmu Komunikasi';
-        }
+        // if ($prodi == 'ti') {
+        //     $title = 'Teknik Informatika';
+        // } elseif ($prodi == 'tip') {
+        //     $title = 'Teknik Industri Pertanian';
+        // } elseif ($prodi == 'agro') {
+        //     $title = 'Agroteknologi';
+        // } elseif ($prodi == 'hi') {
+        //     $title = 'Hubungan Internasional';
+        // } elseif ($prodi == 'ilkom') {
+        //     $title = 'Ilmu Komunikasi';
+        // }
 
-        // $dataProdi = patokanBobotSaintek::where('id', '=', '3');
-        $dataProdi = DB::table('patokan_bobot_sainteks')->where('id', '=', '3')->get();
+        // $dataProdi = DB::table('patokan_bobot_sainteks')->where('id', '=', '3')->get();
 
-        // echo '<pre>';
-        // print_r($dataProdi);
-        // die;
+        // return view('SubMenu.data_kriteria', [
+        //     'title' => $title,
+        //     'dataProdi' => $dataProdi,
+        //     'prodi' => $prodi,
 
-        return view('SubMenu.data_kriteria', [
-            'title' => $title,
-            'dataProdi' => $dataProdi,
-            'prodi' => $prodi,
-
-        ]);
+        // ]);
     }
 
     /**
@@ -98,8 +93,8 @@ class DataKriteriaController extends Controller
     public function edit(dataKriteria $dataKriteria, $id)
     {
         $nilaiKriteria = patokanBobotSaintek::where('id', $id)->first();
-        return view('SubMenu.data_kriteria', [
-            'title' => 'ubah nilai kriteria',
+        return view('dataKriteria.edit', [
+            'title' => 'Ubah Nilai Kriteria',
             'nilaiKriteria' => $nilaiKriteria
         ]);
     }
@@ -131,7 +126,7 @@ class DataKriteriaController extends Controller
 
         $nilaiKriteria = patokanBobotSaintek::findOrFail($id);
         $nilaiKriteria->update($validatedData);
-        return redirect('/data-kriteria')->with('success', 'Period has been updated');
+        return redirect('/data-kriteria')->with('success', 'Nilai pembobotan kriteria telah diperbaharui');
     }
 
     /**
