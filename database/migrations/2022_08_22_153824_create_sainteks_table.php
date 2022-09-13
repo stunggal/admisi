@@ -21,7 +21,6 @@ return new class extends Migration
             $table->integer('kimia');
             $table->integer('biologi');
             $table->integer('kesanggupan');
-            $table->integer('pilihan');
             $table->integer('inggris');
             $table->integer('ujian_lisan');
             $table->integer('arab');

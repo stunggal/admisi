@@ -111,9 +111,6 @@ class DataMahasiswaController extends Controller
         //         ->get();
         // }
 
-
-
-
         // // $ti = camaba::all();
 
         // return view('SubMenu.data_mahasiswa', [
@@ -132,6 +129,22 @@ class DataMahasiswaController extends Controller
         return view('dataMhs.tambahData', [
             'title' => 'Input Data'
         ]);
+    }
+
+    public function bobot($bobot)
+    {
+        if ($bobot == 0 - 2) {
+            $value = '2';
+        } elseif ($bobot == 3 - 4) {
+            $value = '3';
+        } elseif ($bobot == 5 - 6) {
+            $value = '4';
+        } elseif ($bobot == 7 - 8) {
+            $value = '5';
+        }
+        echo '<pre>';
+        print_r($bobot);
+        die;
     }
 
     /**
@@ -173,15 +186,6 @@ class DataMahasiswaController extends Controller
         $isaintek['inggris'] /= 2;
         $isaintek['ujian_lisan'] /= 2;
         $isaintek['arab'] /= 2;
-
-        // $pemikiran = patokanBobotSaintek::where('kriteria', 'Pemikiran')->get();
-        // $total = 0;
-
-        // # Teknik Informatika    
-        // foreach ($pemikiran as $value) {
-        //     $total += $value->ti;
-        //     $nilaiPemikiran = $value->ti;
-        // }
 
         $isaintek['camaba_id'] = $camaba_id;
         $icamaba['periode'] = 0;

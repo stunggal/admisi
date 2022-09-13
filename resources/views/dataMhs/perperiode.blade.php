@@ -52,7 +52,7 @@
                                                             <td><span class="badge bg-danger">Periode nonaktif</span></td>
                                                         @endif
                                                         <td>
-                                                            <a href="/data-mahasiswa/{{ $p->periode }}/ti"
+                                                            <a href="/data-mahasiswa/{{ $p->periode }}/{{ $prodi }}"
                                                                 class="btn btn-success"><i class="bi bi-eye"></i></a>
                                                         </td>
                                                     </tr>

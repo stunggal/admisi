@@ -17,7 +17,8 @@ class PeriodeFactory extends Factory
     public function definition()
     {
         return [
-            'periode' => $this->faker->randomNumber(4, true),
+            // 'periode' => $this->faker->randomNumber(4, true),
+            'periode' => $this->faker->randomElement(['20191', '20192', '20201', '20202']),
             'status' => $this->faker->randomElement(['aktif', 'nonaktif']),
         ];
     }

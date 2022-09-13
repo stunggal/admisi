@@ -127,15 +127,6 @@
                                         </select>
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="pilihan" class="form-label">pilihan</label>
-                                        <select class="form-select" name="pilihan">
-                                            <option selected=""></option>
-                                            <option value="5">pertama</option>
-                                            <option value="3">kedua</option>
-                                            <option value="2">ketiga</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-3">
                                         <label for="inputEmail5" class="form-label">Bahasa Inggris</label>
                                         <input type="text" class="form-control @error('inggris') is-invalid @enderror"
                                             id="inggris" name="inggris">

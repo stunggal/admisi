@@ -63,11 +63,6 @@
                                                 value="{{ $a->kesanggupan }}">
                                         </div>
                                         <div class="col-md-3">
-                                            <label for="inputEmail5" class="form-label">Pilihan Prodi</label>
-                                            <input type="text" class="form-control" id=""
-                                                value="{{ $a->pilihan }}">
-                                        </div>
-                                        <div class="col-md-3">
                                             <label for="inputEmail5" class="form-label">Bahasa Inggris</label>
                                             <input type="text" class="form-control" id=""
                                                 value="{{ $a->inggris }}">
@@ -101,10 +96,6 @@
                                             <label for="inputPassword5" class="form-label">Penghasilan</label>
                                             <input type="text" class="form-control" id=""
                                                 value="{{ $a->penghasilan }}">
-                                        </div>
-                                        <div class="col-md-3">
-                                            <label for="inputCity" class="form-label">Rata-rata</label>
-                                            <input type="text" class="form-control" id="inputCity">
                                         </div>
                                     @endforeach
                                 </form><!-- End Multi Columns Form -->
