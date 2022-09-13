@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\agro;
 use App\Models\camaba;
 use App\Models\dataMahasiswa;
 use App\Models\patokanBobotSaintek;
 use App\Models\periode;
 use App\Models\saintek;
+use App\Models\ti;
+use App\Models\tip;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -131,22 +134,6 @@ class DataMahasiswaController extends Controller
         ]);
     }
 
-    public function bobot($bobot)
-    {
-        if ($bobot == 0 - 2) {
-            $value = '2';
-        } elseif ($bobot == 3 - 4) {
-            $value = '3';
-        } elseif ($bobot == 5 - 6) {
-            $value = '4';
-        } elseif ($bobot == 7 - 8) {
-            $value = '5';
-        }
-        echo '<pre>';
-        print_r($bobot);
-        die;
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -169,32 +156,114 @@ class DataMahasiswaController extends Controller
             'kimia' => 'required',
             'biologi' => 'required',
             'kesanggupan' => 'required',
-            'pilihan' => 'required',
             'inggris' => 'required',
             'ujian_lisan' => 'required',
             'arab' => 'required',
-            'pemikiran' => 'required',
             'pemikiran' => 'required',
             'pendanaan' => 'required',
             'pendidikan_terakhir' => 'required',
             'penghasilan' => 'required',
         ]);
-        $isaintek['matematika'] /= 2;
-        $isaintek['fisika'] /= 2;
-        $isaintek['biologi'] /= 2;
-        $isaintek['kimia'] /= 2;
-        $isaintek['inggris'] /= 2;
-        $isaintek['ujian_lisan'] /= 2;
-        $isaintek['arab'] /= 2;
 
-        $isaintek['camaba_id'] = $camaba_id;
         $icamaba['periode'] = 0;
-        $c = periode::where('status', 'aktif')->get();
-        foreach ($c as $key) {
-            $icamaba['periode'] = $key['periode'];
+
+        if ($request['prodi1'] == 'ti') {
+            $iti = $isaintek;
+            $iti['pilihan'] = 5;
+            $iti['camaba_id'] = $camaba_id;
+            $c = periode::where('status', 'aktif')->get();
+            foreach ($c as $key) {
+                $iti['periode'] = $key['periode'];
+            }
+            ti::create($iti);
+        } elseif ($request['prodi2'] == 'ti') {
+            $iti = $isaintek;
+            $iti['pilihan'] = 3;
+            $iti['camaba_id'] = $camaba_id;
+            $c = periode::where('status', 'aktif')->get();
+            foreach ($c as $key) {
+                $iti['periode'] = $key['periode'];
+            }
+            ti::create($iti);
+        } elseif ($request['prodi3'] == 'ti') {
+            $iti = $isaintek;
+            $iti['pilihan'] = 2;
+            $iti['camaba_id'] = $camaba_id;
+            $c = periode::where('status', 'aktif')->get();
+            foreach ($c as $key) {
+                $iti['periode'] = $key['periode'];
+            }
+            ti::create($iti);
         }
+
+        if ($request['prodi1'] == 'tip') {
+            $itip = $isaintek;
+            $itip['pilihan'] = 5;
+            $itip['camaba_id'] = $camaba_id;
+            $c = periode::where('status', 'aktif')->get();
+            foreach ($c as $key) {
+                $itip['periode'] = $key['periode'];
+            }
+            tip::create($itip);
+        } elseif ($request['prodi2'] == 'tip') {
+            $itip = $isaintek;
+            $itip['pilihan'] = 3;
+            $itip['camaba_id'] = $camaba_id;
+            $c = periode::where('status', 'aktif')->get();
+            foreach ($c as $key) {
+                $itip['periode'] = $key['periode'];
+            }
+            tip::create($itip);
+        } elseif ($request['prodi3'] == 'tip') {
+            $itip = $isaintek;
+            $itip['pilihan'] = 2;
+            $itip['camaba_id'] = $camaba_id;
+            $c = periode::where('status', 'aktif')->get();
+            foreach ($c as $key) {
+                $itip['periode'] = $key['periode'];
+            }
+            tip::create($itip);
+        }
+
+        if ($request['prodi1'] == 'agro') {
+            $iagro = $isaintek;
+            $iagro['pilihan'] = 5;
+            $iagro['camaba_id'] = $camaba_id;
+            $c = periode::where('status', 'aktif')->get();
+            foreach ($c as $key) {
+                $iagro['periode'] = $key['periode'];
+            }
+            agro::create($iagro);
+        } elseif ($request['prodi2'] == 'agro') {
+            $iagro = $isaintek;
+            $iagro['pilihan'] = 3;
+            $iagro['camaba_id'] = $camaba_id;
+            $c = periode::where('status', 'aktif')->get();
+            foreach ($c as $key) {
+                $iagro['periode'] = $key['periode'];
+            }
+            agro::create($iagro);
+        } elseif ($request['prodi3'] == 'agro') {
+            $iagro = $isaintek;
+            $iagro['pilihan'] = 2;
+            $iagro['camaba_id'] = $camaba_id;
+            $c = periode::where('status', 'aktif')->get();
+            foreach ($c as $key) {
+                $iagro['periode'] = $key['periode'];
+            }
+            agro::create($iagro);
+        }
+
+        // $isaintek['camaba_id'] = $camaba_id;
+        // $icamaba['periode'] = 0;
+        // $c = periode::where('status', 'aktif')->get();
+        // foreach ($c as $key) {
+        //     $icamaba['periode'] = $key['periode'];
+        // }
         camaba::create($icamaba);
-        saintek::create($isaintek);
+        // saintek::create($isaintek);
+
+        // return $request;
 
         return redirect('/data-mahasiswa')->with('success', 'Data Berhasil tersimpan');
     }

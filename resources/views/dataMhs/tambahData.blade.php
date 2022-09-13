@@ -47,9 +47,9 @@
                                             class="form-label @error('prodi1') is-invalid @enderror">Pilihan Prodi 1</label>
                                         <select class="form-select" name="prodi1">
                                             <option selected=""></option>
-                                            <option value="Teknik Informatika">Teknik Informatika</option>
-                                            <option value="Teknik Industri Pertanian">Teknik Industri Pertanian</option>
-                                            <option value="Agro teknologi">Agroteknologi</option>
+                                            <option value="ti">Teknik Informatika</option>
+                                            <option value="tip">Teknik Industri Pertanian</option>
+                                            <option value="agro">Agroteknologi</option>
                                         </select>
                                         {{-- <input type="text" class="form-control" id="prodi1" name="prodi1"> --}}
                                     </div>
@@ -58,9 +58,9 @@
                                             class="form-label @error('prodi2') is-invalid @enderror">Pilihan Prodi 2</label>
                                         <select class="form-select" name="prodi2">
                                             <option selected=""></option>
-                                            <option value="Teknik Informatika">Teknik Informatika</option>
-                                            <option value="Teknik Industri Pertanian">Teknik Industri Pertanian</option>
-                                            <option value="Agro teknologi">Agroteknologi</option>
+                                            <option value="ti">Teknik Informatika</option>
+                                            <option value="tip">Teknik Industri Pertanian</option>
+                                            <option value="agro">Agroteknologi</option>
                                         </select>
                                         {{-- <input type="text" class="form-control" id="prodi2" name="prodi2"> --}}
                                     </div>
@@ -69,9 +69,9 @@
                                             class="form-label @error('prodi3') is-invalid @enderror">Pilihan Prodi 3</label>
                                         <select class="form-select" name="prodi3">
                                             <option selected=""></option>
-                                            <option value="Teknik Informatika">Teknik Informatika</option>
-                                            <option value="Teknik Industri Pertanian">Teknik Industri Pertanian</option>
-                                            <option value="Agro teknologi">Agroteknologi</option>
+                                            <option value="ti">Teknik Informatika</option>
+                                            <option value="tip">Teknik Industri Pertanian</option>
+                                            <option value="agro">Agroteknologi</option>
                                         </select>
                                         {{-- <input type="text" class="form-control" id="prodi3" name="prodi3"> --}}
                                     </div>

@@ -7,6 +7,7 @@ use App\Http\Controllers\DataMahasiswaController;
 use App\Http\Controllers\PerhitunganController;
 use App\Http\Controllers\PeriodeController;
 use App\Models\dataKriteria;
+use App\Models\dataMahasiswa;
 use App\Models\periode;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -49,3 +50,5 @@ Route::get('/perhitungan', [PerhitunganController::class, 'index']);
 Route::get('/perhitungan/{prodi}', [PerhitunganController::class, 'prodi']);
 
 Route::get('/analisa', [AnalisaController::class, 'index']);
+
+Route::get('/bobot/{bobot}', [DataMahasiswaController::class, 'bobot']);
