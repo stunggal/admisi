@@ -4,11 +4,13 @@
 @section('body')
     <main id="main" class="main">
         <div class="pagetitle">
+
             <h1> $title }}</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                     <li class="breadcrumb-item active"> $title }}</li>
+
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -25,7 +27,9 @@
                                 </h5>
                                 @if (session()->has('delete'))
                                     <div class="alert alert-success">
-                                        session()->get('delete') }}
+
+                                        {{ session()->get('delete') }}
+
                                     </div>
                                 @endif
                                 <table class="table table-striped datatable">
@@ -48,6 +52,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+
                                         @foreach ($dataMahasiswa as $item)
                                             <tr>
                                                 <td>A{{ $item->id }}</td>
@@ -64,6 +69,7 @@
                                                 <td> {{ $item->pendanaan }}</td>
                                                 <td> {{ $item->pendidikan_terakhir }}</td>
                                                 <td> {{ $item->penghasilan }}</td>
+
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -87,7 +93,9 @@
                                 </h5>
                                 @if (session()->has('delete'))
                                     <div class="alert alert-success">
-                                        session()->get('delete') }}
+
+                                        {{ session()->get('delete') }}
+
                                     </div>
                                 @endif
                                 <table class="table table-striped datatable">
@@ -112,6 +120,7 @@
                                     <tbody>
                                         <tr>
                                             <td>Tingkat Kepentingan</td>
+
                                             <td>{{ $patokanBobotSaintek['matematika'] }}</td>
                                             <td>{{ $patokanBobotSaintek['fisika'] }}</td>
                                             <td>{{ $patokanBobotSaintek['kimia'] }}</td>
@@ -141,6 +150,7 @@
                                             <td>{{ $perhitunganSaintek['pendanaan'] }}</td>
                                             <td>{{ $perhitunganSaintek['pendidikan_terakhir'] }}</td>
                                             <td>{{ $perhitunganSaintek['penghasilan'] }}</td>
+
                                         </tr>
                                     </tbody>
                                 </table>
@@ -163,7 +173,9 @@
                                 </h5>
                                 @if (session()->has('delete'))
                                     <div class="alert alert-success">
-                                        session()->get('delete') }}
+
+                                        {{ session()->get('delete') }}
+
                                     </div>
                                 @endif
                                 <table class="table table-striped datatable">
@@ -174,10 +186,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+
                                         @foreach ($vector as $item)
                                             <tr>
                                                 <td>A{{ $item['id_mahasiswa'] }}</td>
                                                 <td>{{ $item['nilai'] }}</td>
+
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -201,20 +215,25 @@
                                 </h5>
                                 @if (session()->has('delete'))
                                     <div class="alert alert-success">
-                                        session()->get('delete') }}
+
+                                        {{ session()->get('delete') }}
+
                                     </div>
                                 @endif
                                 <table class="table table-striped datatable">
                                     <thead>
                                         <tr>
+
                                             <th scope="col">alternatif</th>
                                             <th scope="col">nilai akhir</th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @php
                                             $i = 0;
                                         @endphp
+
                                         @foreach ($ranking as $item)
                                             @php
                                                 $i++;
@@ -222,6 +241,7 @@
                                             <tr>
                                                 <td>A{{ $item['id'] }}</td>
                                                 <td>{{ $item['nilai'] }}</td>
+
                                             </tr>
                                         @endforeach
                                     </tbody>

@@ -134,6 +134,22 @@ class DataMahasiswaController extends Controller
         ]);
     }
 
+    public function bobot($bobot)
+    {
+        if ($bobot == 0 - 2) {
+            $value = '2';
+        } elseif ($bobot == 3 - 4) {
+            $value = '3';
+        } elseif ($bobot == 5 - 6) {
+            $value = '4';
+        } elseif ($bobot == 7 - 8) {
+            $value = '5';
+        }
+        echo '<pre>';
+        print_r($bobot);
+        die;
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -164,6 +180,16 @@ class DataMahasiswaController extends Controller
             'pendidikan_terakhir' => 'required',
             'penghasilan' => 'required',
         ]);
+
+        $isaintek['matematika'] /= 2;
+        $isaintek['fisika'] /= 2;
+        $isaintek['biologi'] /= 2;
+        $isaintek['kimia'] /= 2;
+        $isaintek['inggris'] /= 2;
+        $isaintek['ujian_lisan'] /= 2;
+        $isaintek['arab'] /= 2;
+
+        $isaintek['camaba_id'] = $camaba_id;
 
         $icamaba['periode'] = 0;
 
