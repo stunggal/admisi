@@ -20,17 +20,20 @@
                     <div class="row">
 
                         <!-- Customers Card -->
-                        <div class="col-xxl-4 col-xl-12">
+                        @foreach ($data as $item)
+                            <div class="col-xxl-4 col-xl-12">
 
-                            <div class="card info-card customers-card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Tenik informatika</h5>
-                                    <a href="/perhitungan/ti" class="btn btn-success"><i class="bi bi-eye"></i></a>
-                                    <a href="" class="btn btn-danger "><i class="bi bi-trash"></i></a>
+                                <div class="card info-card customers-card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $item->prodi }}</h5>
+                                        <a href="/perhitungan/{{ $periode }}/{{ $item->id }}"
+                                            class="btn btn-success"><i class="bi bi-eye"></i></a>
+                                        <a href="" class="btn btn-danger "><i class="bi bi-trash"></i></a>
+                                    </div>
                                 </div>
-                            </div>
 
-                        </div><!-- End Customers Card -->
+                            </div><!-- End Customers Card -->
+                        @endforeach
 
                     </div>
                 </div><!-- End Left side columns -->

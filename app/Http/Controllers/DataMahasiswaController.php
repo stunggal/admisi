@@ -255,11 +255,9 @@ class DataMahasiswaController extends Controller
         }
 
         // $isaintek['camaba_id'] = $camaba_id;
-        // $icamaba['periode'] = 0;
-        // $c = periode::where('status', 'aktif')->get();
-        // foreach ($c as $key) {
-        //     $icamaba['periode'] = $key['periode'];
-        // }
+        $icamaba['periode'] = 0;
+        $c = periode::where('status', 'aktif')->first();
+        $icamaba['periode'] = $c['periode'];
         camaba::create($icamaba);
         // saintek::create($isaintek);
 

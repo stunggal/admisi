@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\agro;
 use App\Models\patokanBobotSaintek;
 use App\Models\perhitungan;
+use App\Models\periode;
+use App\Models\ti;
+use App\Models\tip;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,107 +18,137 @@ class PerhitunganController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($periode)
     {
+        $data = patokanBobotSaintek::all();
         return view('perhitungan.index', [
-            'title' => 'Perhitungan'
+            'title' => 'Perhitungan',
+            'data' => $data,
+            'periode' => $periode
         ]);
     }
 
-    public function prodi($prodi)
+    public function prodi($periode, $prodi)
     {
-        if ($prodi == 'ti') {
+        $dataMahasiswa = [];
+        $title = '';
+
+        if ($prodi == '3') {
             $title = 'Teknik Informatika';
-        } elseif ($prodi == 'tip') {
+            $dataMahasiswa = DB::table('camabas')
+                ->join('tis', 'tis.camaba_id', '=', 'camabas.id')->where('camabas.periode', $periode)
+                ->get();
+            $dataMahasiswa->where('periode', $periode);
+        } elseif ($prodi == '1') {
             $title = 'Teknik Industri Pertanian';
-        } elseif ($prodi == 'agro') {
+            $dataMahasiswa = DB::table('camabas')
+                ->join('tips', 'tips.camaba_id', '=', 'camabas.id')->where('camabas.periode', $periode)
+                ->get();
+            $dataMahasiswa->where('periode', $periode);
+        } elseif ($prodi == '2') {
             $title = 'Agroteknologi';
+            $dataMahasiswa = DB::table('camabas')
+                ->join('agros', 'agross.camaba_id', '=', 'camabas.id')->where('camabas.periode', $periode)
+                ->get();
+            $dataMahasiswa->where('periode', $periode);
         } elseif ($prodi == 'hi') {
             $title = 'Hubungan Internasional';
         } elseif ($prodi == 'ilkom') {
             $title = 'Ilmu Komunikasi';
         }
-        $patokanBobotSaintekTi = patokanBobotSaintek::all();
-        $dataMahasiswaTi =  DB::table('camabas')
-            ->join('sainteks', 'sainteks.camaba_id', '=', 'camabas.id')
-            ->where('camabas.prodi1', 'Teknik Informatika')
-            ->orWhere('camabas.prodi2', 'Teknik Informatika')
-            ->orWhere('camabas.prodi3', 'Teknik Informatika')
-            ->get();
 
-        $jumlahPatokanBobotSaintekTi = 0;
-        $arrayPatokanBobotSaintekTi = [];
 
-        // foreach ($patokanBobotSaintekTi as $key) {
-        //     $jumlahPatokanBobotSaintekTi += $key['ti'];
-        // }
 
-        foreach ($patokanBobotSaintekTi as $key) {
-            array_push($arrayPatokanBobotSaintekTi, $key["ti"] / $jumlahPatokanBobotSaintekTi);
-        }
+        function ulang($normalisasiNilai)
+        {
+            if ($normalisasiNilai >= 0 && $normalisasiNilai < 3) {
+                return 1;
+            } elseif ($normalisasiNilai >= 3 && $normalisasiNilai < 5) {
+                return 2;
+            } elseif ($normalisasiNilai >= 5 && $normalisasiNilai < 7) {
+                return 3;
+            } elseif ($normalisasiNilai >= 7 && $normalisasiNilai < 9) {
+                return 4;
+            } elseif ($normalisasiNilai >= 9 && $normalisasiNilai <= 10) {
+                return 5;
+            }
+        };
 
-        $arrayStatus = [];
-        foreach ($patokanBobotSaintekTi as $key) {
-            array_push($arrayStatus, $key->status);
-        }
+        $i = 0;
+        // return $dataMahasiswa[$key->id]['matematika;
 
-        $a1 = $arrayStatus;
-        $a2 = $arrayPatokanBobotSaintekTi;
-        $arrVector = [];
-        for ($i = 0; $i < count($a1); $i++) {
-            $arrVector[$i]['costBenefit'] = $a1[$i];
-            $arrVector[$i]['nilai'] = $a2[$i];
-        }
+        foreach ($dataMahasiswa as $key) {
 
-        $vectorS = [];
-        $i = -1;
-        foreach ($dataMahasiswaTi as $item) {
+            $key->matematika = ulang($key->matematika);
+            $key->fisika = ulang($key->fisika);
+            $key->kimia = ulang($key->kimia);
+            $key->biologi = ulang($key->biologi);
+            $key->inggris = ulang($key->inggris);
+            $key->ujian_lisan = ulang($key->ujian_lisan);
+            $key->arab = ulang($key->arab);
             $i++;
-            $mtk = $item->matematika ** $arrayStatus['0']['nilai'];
-            $fsk = $item->fisika ** $arrayStatus['1']['nilai'];
-            $kma = $item->kimia ** $arrayStatus['2']['nilai'];
-            $bio = $item->biologi ** $arrayStatus['3']['nilai'];
-            $sanggup = $item->kesanggupan ** $arrayStatus['4']['nilai'];
-            $pil = $item->pilihan ** $arrayStatus['5']['nilai'];
-            $ing = $item->inggris ** $arrayStatus['6']['nilai'];
-            $lisan = $item->ujian_lisan ** $arrayStatus['7']['nilai'];
-            $arab = $item->arab ** $arrayStatus['8']['nilai'];
-            $mikir = $item->pemikiran ** $arrayStatus['9']['nilai'];
-            $dana = $item->pendanaan ** $arrayStatus['10']['nilai'];
-            $didik = $item->pendidikan_terakhir ** $arrayStatus['11']['nilai'];
-            $hasil = $item->penghasilan ** $arrayStatus['12']['nilai'];
-
-            $vectorS[$i] = $mtk * $fsk * $kma * $bio * $sanggup * $pil * $ing * $lisan * $arab * $mikir * $dana * $didik * $hasil;
         }
 
-        $ranking = 0;
-        foreach ($vectorS as $key) {
-            $ranking += $key;
+        // perhitungan bobot
+        $patokanBobotSaintek = patokanBobotSaintek::where('prodi', $title)->first();
+        $jumlah = $patokanBobotSaintek['matematika'] + $patokanBobotSaintek['fisika'] + $patokanBobotSaintek['kimia'] + $patokanBobotSaintek['biologi'] + $patokanBobotSaintek['kesanggupan'] + $patokanBobotSaintek['pilihan'] + $patokanBobotSaintek['inggris'] + $patokanBobotSaintek['ujian_lisan'] + $patokanBobotSaintek['arab'] + $patokanBobotSaintek['pemikiran'] + $patokanBobotSaintek['pendanaan'] + $patokanBobotSaintek['pendidikan_terakhir'] + $patokanBobotSaintek['penghasilan'];
+        $perhitunganSaintek['matematika'] = $patokanBobotSaintek['matematika'] / $jumlah;
+        $perhitunganSaintek['fisika'] = $patokanBobotSaintek['fisika'] / $jumlah;
+        $perhitunganSaintek['kimia'] = $patokanBobotSaintek['kimia'] / $jumlah;
+        $perhitunganSaintek['biologi'] = $patokanBobotSaintek['biologi'] / $jumlah;
+        $perhitunganSaintek['kesanggupan'] = $patokanBobotSaintek['kesanggupan'] / $jumlah;
+        $perhitunganSaintek['inggris'] = $patokanBobotSaintek['inggris'] / $jumlah;
+        $perhitunganSaintek['ujian_lisan'] = $patokanBobotSaintek['ujian_lisan'] / $jumlah;
+        $perhitunganSaintek['arab'] = $patokanBobotSaintek['arab'] / $jumlah;
+        $perhitunganSaintek['pemikiran'] = $patokanBobotSaintek['pemikiran'] / $jumlah;
+        $perhitunganSaintek['pendanaan'] = $patokanBobotSaintek['pendanaan'] / $jumlah;
+        $perhitunganSaintek['pendidikan_terakhir'] = $patokanBobotSaintek['pendidikan_terakhir'] / $jumlah;
+        $perhitunganSaintek['penghasilan'] = $patokanBobotSaintek['penghasilan'] / $jumlah;
+        $perhitunganSaintek['pilihan'] = $patokanBobotSaintek['pilihan'] / $jumlah;
+
+        // perhitungan nil;ai vector s
+
+        $vector = [];
+        $i = 0;
+        foreach ($dataMahasiswa as $key) {
+            $vector[$i]['id_mahasiswa'] =  $key->id;
+            $vector[$i]['nilai'] =  ($key->matematika ** $perhitunganSaintek['matematika']) * ($key->fisika ** $perhitunganSaintek['fisika']) * ($key->kimia ** $perhitunganSaintek['kimia']) * ($key->biologi ** $perhitunganSaintek['biologi']) * ($key->kesanggupan ** $perhitunganSaintek['kesanggupan']) * ($key->inggris ** $perhitunganSaintek['inggris']) * ($key->ujian_lisan ** $perhitunganSaintek['ujian_lisan']) * ($key->arab ** $perhitunganSaintek['arab']) * ($key->pemikiran ** $perhitunganSaintek['pemikiran']) * ($key->pendanaan ** $perhitunganSaintek['pendanaan']) * ($key->pendidikan_terakhir ** $perhitunganSaintek['pendidikan_terakhir']) * ($key->penghasilan ** $perhitunganSaintek['penghasilan']) * ($key->pilihan ** $perhitunganSaintek['pilihan']);
+            $i++;
         }
 
-        $arrRank = [];
-        foreach ($vectorS as $key) {
-            array_push($arrRank, $key / $ranking);
+        // ranking
+        $totalVectorS = 0;
+        foreach ($vector as $ranking) {
+            $totalVectorS += $ranking['nilai'];
         }
 
-        // echo '<pre>';
-        // print_r($arrRank);
-        // die;
+        // return $vector;
+        $i = 0;
+        $ranking = [];
+        foreach ($vector as $key) {
+            $ranking[$i]['id'] = $key['id_mahasiswa'];
+            $ranking[$i]['nilai'] = $key['nilai'] / $totalVectorS;
+            $i++;
+        }
 
-
-        // echo '<pre>';
-        // print_r($arrVector[1]['nilai']);
-        // die;
-
+        // return $totalVectorS;
 
         return view('perhitungan.perhitungan', [
             'title' => $title,
-            'dataMahasiswaTi' => $dataMahasiswaTi,
-            'patokanBobotSaintekTi' => $patokanBobotSaintekTi,
-            'arrayPatokanBobotSaintekTi' => $arrayPatokanBobotSaintekTi,
-            'arrVector' => $arrVector,
-            'vectorS' => $vectorS,
-            'arrRank' => $arrRank
+            'dataMahasiswa' => $dataMahasiswa,
+            'perhitunganSaintek' => $perhitunganSaintek,
+            'patokanBobotSaintek' => $patokanBobotSaintek,
+            'vector' => $vector,
+            'ranking' => $ranking
+        ]);
+    }
+
+    public function periodePerhitungan()
+    {
+        $periodes = periode::all();
+        return view('perhitungan.perperiode', [
+            'title' => 'periode',
+            'periodes' => $periodes
         ]);
     }
 

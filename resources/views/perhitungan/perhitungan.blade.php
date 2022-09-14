@@ -4,11 +4,11 @@
 @section('body')
     <main id="main" class="main">
         <div class="pagetitle">
-            <h1>{{ $title }}</h1>
+            <h1> $title }}</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active">{{ $title }}</li>
+                    <li class="breadcrumb-item active"> $title }}</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -25,7 +25,7 @@
                                 </h5>
                                 @if (session()->has('delete'))
                                     <div class="alert alert-success">
-                                        {{ session()->get('delete') }}
+                                        session()->get('delete') }}
                                     </div>
                                 @endif
                                 <table class="table table-striped datatable">
@@ -48,28 +48,22 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @php
-                                            $i = 0;
-                                        @endphp
-                                        @foreach ($dataMahasiswaTi as $item)
+                                        @foreach ($dataMahasiswa as $item)
                                             <tr>
-                                                @php
-                                                    $i++;
-                                                @endphp
-                                                <td>A{{ $i }}</td>
-                                                <td>{{ $item->matematika }}</td>
-                                                <td>{{ $item->fisika }}</td>
-                                                <td>{{ $item->kimia }}</td>
-                                                <td>{{ $item->biologi }}</td>
-                                                <td>{{ $item->kesanggupan }}</td>
-                                                <td>{{ $item->pilihan }}</td>
-                                                <td>{{ $item->inggris }}</td>
-                                                <td>{{ $item->ujian_lisan }}</td>
-                                                <td>{{ $item->arab }}</td>
-                                                <td>{{ $item->pemikiran }}</td>
-                                                <td>{{ $item->pendanaan }}</td>
-                                                <td>{{ $item->pendidikan_terakhir }}</td>
-                                                <td>{{ $item->penghasilan }}</td>
+                                                <td>A{{ $item->id }}</td>
+                                                <td> {{ $item->matematika }}</td>
+                                                <td> {{ $item->fisika }}</td>
+                                                <td> {{ $item->kimia }}</td>
+                                                <td> {{ $item->biologi }}</td>
+                                                <td> {{ $item->kesanggupan }}</td>
+                                                <td> {{ $item->pilihan }}</td>
+                                                <td> {{ $item->inggris }}</td>
+                                                <td> {{ $item->ujian_lisan }}</td>
+                                                <td> {{ $item->arab }}</td>
+                                                <td> {{ $item->pemikiran }}</td>
+                                                <td> {{ $item->pendanaan }}</td>
+                                                <td> {{ $item->pendidikan_terakhir }}</td>
+                                                <td> {{ $item->penghasilan }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -93,7 +87,7 @@
                                 </h5>
                                 @if (session()->has('delete'))
                                     <div class="alert alert-success">
-                                        {{ session()->get('delete') }}
+                                        session()->get('delete') }}
                                     </div>
                                 @endif
                                 <table class="table table-striped datatable">
@@ -118,15 +112,35 @@
                                     <tbody>
                                         <tr>
                                             <td>Tingkat Kepentingan</td>
-                                            @foreach ($patokanBobotSaintekTi as $item)
-                                                <td>{{ $item->ti }}</td>
-                                            @endforeach
+                                            <td>{{ $patokanBobotSaintek['matematika'] }}</td>
+                                            <td>{{ $patokanBobotSaintek['fisika'] }}</td>
+                                            <td>{{ $patokanBobotSaintek['kimia'] }}</td>
+                                            <td>{{ $patokanBobotSaintek['biologi'] }}</td>
+                                            <td>{{ $patokanBobotSaintek['kesanggupan'] }}</td>
+                                            <td>{{ $patokanBobotSaintek['pilihan'] }}</td>
+                                            <td>{{ $patokanBobotSaintek['inggris'] }}</td>
+                                            <td>{{ $patokanBobotSaintek['ujian_lisan'] }}</td>
+                                            <td>{{ $patokanBobotSaintek['arab'] }}</td>
+                                            <td>{{ $patokanBobotSaintek['pemikiran'] }}</td>
+                                            <td>{{ $patokanBobotSaintek['pendanaan'] }}</td>
+                                            <td>{{ $patokanBobotSaintek['pendidikan_terakhir'] }}</td>
+                                            <td>{{ $patokanBobotSaintek['penghasilan'] }}</td>
                                         </tr>
                                         <tr>
                                             <td>Bobot Kepentingan</td>
-                                            @foreach ($arrayPatokanBobotSaintekTi as $item)
-                                                <td>{{ $item }}</td>
-                                            @endforeach
+                                            <td>{{ $perhitunganSaintek['matematika'] }}</td>
+                                            <td>{{ $perhitunganSaintek['fisika'] }}</td>
+                                            <td>{{ $perhitunganSaintek['kimia'] }}</td>
+                                            <td>{{ $perhitunganSaintek['biologi'] }}</td>
+                                            <td>{{ $perhitunganSaintek['kesanggupan'] }}</td>
+                                            <td>{{ $perhitunganSaintek['pilihan'] }}</td>
+                                            <td>{{ $perhitunganSaintek['inggris'] }}</td>
+                                            <td>{{ $perhitunganSaintek['ujian_lisan'] }}</td>
+                                            <td>{{ $perhitunganSaintek['arab'] }}</td>
+                                            <td>{{ $perhitunganSaintek['pemikiran'] }}</td>
+                                            <td>{{ $perhitunganSaintek['pendanaan'] }}</td>
+                                            <td>{{ $perhitunganSaintek['pendidikan_terakhir'] }}</td>
+                                            <td>{{ $perhitunganSaintek['penghasilan'] }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -149,7 +163,7 @@
                                 </h5>
                                 @if (session()->has('delete'))
                                     <div class="alert alert-success">
-                                        {{ session()->get('delete') }}
+                                        session()->get('delete') }}
                                     </div>
                                 @endif
                                 <table class="table table-striped datatable">
@@ -160,16 +174,10 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @php
-                                            $i = 0;
-                                        @endphp
-                                        @foreach ($vectorS as $item)
+                                        @foreach ($vector as $item)
                                             <tr>
-                                                @php
-                                                    $i++;
-                                                @endphp
-                                                <td>A{{ $i }}</td>
-                                                <td>{{ $item }}</td>
+                                                <td>A{{ $item['id_mahasiswa'] }}</td>
+                                                <td>{{ $item['nilai'] }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -193,27 +201,27 @@
                                 </h5>
                                 @if (session()->has('delete'))
                                     <div class="alert alert-success">
-                                        {{ session()->get('delete') }}
+                                        session()->get('delete') }}
                                     </div>
                                 @endif
                                 <table class="table table-striped datatable">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Kriteria</th>
-                                            <th scope="col">Bobot</th>
+                                            <th scope="col">alternatif</th>
+                                            <th scope="col">nilai akhir</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @php
                                             $i = 0;
                                         @endphp
-                                        @foreach ($arrRank as $item)
+                                        @foreach ($ranking as $item)
+                                            @php
+                                                $i++;
+                                            @endphp
                                             <tr>
-                                                @php
-                                                    $i++;
-                                                @endphp
-                                                <td>A{{ $i }}</td>
-                                                <td>{{ $item }}</td>
+                                                <td>A{{ $item['id'] }}</td>
+                                                <td>{{ $item['nilai'] }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>
