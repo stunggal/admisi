@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\camaba;
 use App\Models\dashboard;
+use App\Models\periode;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -14,8 +17,31 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        $dataPeriode = [];
+        $periodeTerakhir = periode::orderBy('periode', 'asc')->take(3)->get();
+        $i = 0;
+        foreach ($periodeTerakhir as $key) {
+            $dataPeriode[$i]['nama'] = $key->periode;
+            $dataCamaba = camaba::where('periode', $key->periode)->get();
+            $dataPeriode[$i]['nilai'] =  $dataCamaba->count();
+            $i++;
+        };
+        $periode = periode::where('status', 'aktif')->first();
+        $ti = DB::table('camabas')
+            ->join('tis', 'tis.camaba_id', '=', 'camabas.id')->where('camabas.periode', $periode['periode'])
+            ->get();
+        $tip = DB::table('camabas')
+            ->join('tips', 'tips.camaba_id', '=', 'camabas.id')->where('camabas.periode', $periode['periode'])
+            ->get();
+        $agro = DB::table('camabas')
+            ->join('agros', 'agros.camaba_id', '=', 'camabas.id')->where('camabas.periode', $periode['periode'])
+            ->get();
         return view('beranda.index', [
-            'title' => 'Beranda'
+            'title' => 'Beranda',
+            'ti' => $ti,
+            'tip' => $tip,
+            'agro' => $agro,
+            'dataPeriode' => $dataPeriode
         ]);
     }
 

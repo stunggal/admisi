@@ -48,7 +48,7 @@ class PerhitunganController extends Controller
         } elseif ($prodi == '2') {
             $title = 'Agroteknologi';
             $dataMahasiswa = DB::table('camabas')
-                ->join('agros', 'agross.camaba_id', '=', 'camabas.id')->where('camabas.periode', $periode)
+                ->join('agros', 'agros.camaba_id', '=', 'camabas.id')->where('camabas.periode', $periode)
                 ->get();
             $dataMahasiswa->where('periode', $periode);
         } elseif ($prodi == 'hi') {
