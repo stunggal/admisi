@@ -20,6 +20,7 @@ class PerhitunganController extends Controller
      */
     public function index($periode)
     {
+
         $data = patokanBobotSaintek::all();
         return view('perhitungan.index', [
             'title' => 'Perhitungan',
@@ -56,6 +57,26 @@ class PerhitunganController extends Controller
         } elseif ($prodi == 'ilkom') {
             $title = 'Ilmu Komunikasi';
         }
+
+        $patokanBobotSaintekTi = patokanBobotSaintek::all();
+        $dataMahasiswaTi =  DB::table('camabas')
+            ->join('sainteks', 'sainteks.camaba_id', '=', 'camabas.id')
+            ->where('camabas.prodi1', 'Teknik Informatika')
+            ->orWhere('camabas.prodi2', 'Teknik Informatika')
+            ->orWhere('camabas.prodi3', 'Teknik Informatika')
+            ->get();
+
+        $jumlahPatokanBobotSaintekTi = 0;
+        $arrayPatokanBobotSaintekTi = [];
+
+        // foreach ($patokanBobotSaintekTi as $key) {
+        //     $jumlahPatokanBobotSaintekTi += $key['ti'];
+        // }
+
+        foreach ($patokanBobotSaintekTi as $key) {
+            array_push($arrayPatokanBobotSaintekTi, $key["ti"] / $jumlahPatokanBobotSaintekTi);
+        }
+
 
 
 

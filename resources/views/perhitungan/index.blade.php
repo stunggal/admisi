@@ -20,6 +20,7 @@
                     <div class="row">
 
                         <!-- Customers Card -->
+
                         @foreach ($data as $item)
                             <div class="col-xxl-4 col-xl-12">
 
@@ -34,6 +35,7 @@
 
                             </div><!-- End Customers Card -->
                         @endforeach
+
 
                     </div>
                 </div><!-- End Left side columns -->
